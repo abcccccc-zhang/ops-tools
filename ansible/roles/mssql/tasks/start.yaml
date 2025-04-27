@@ -1,0 +1,6 @@
+---
+- name: Run Docker Compose
+  command: "docker compose -f {{ item.path }}/{{ item.compose_file }} up -d"
+  args:
+    chdir: "{{ item.path }}"  # Docker Compose 文件所在目录
+  loop: "{{ stroge_path }}"

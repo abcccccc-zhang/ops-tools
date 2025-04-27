@@ -1,0 +1,109 @@
+workflow:
+  rules:
+    # - if: '$CI_COMMIT_TAG && $CI_COMMIT_BRANCH == "master"'
+    - if: $CI_COMMIT_TAG && '$CI_COMMIT_BRANCH == "master"'
+      when: always
+    - if: $CI_PIPELINE_SOURCE == "push"
+      changes:
+        - .gitlab-ci.yml
+      when: never
+
+include:
+  - project: $CI_PROJECT_NAMESPACE/common
+    file: .default.yml
+
+variables:
+  SCP: scp -o StrictHostKeyChecking=no -i $PK -P $SRV_PORT -p
+  SSH: ssh -o StrictHostKeyChecking=no -i $PK -p $SRV_PORT $SRV
+  APP_HOME: /home/app/encryption
+  # backend_HOME: jeecg-module-system/jeecg-system-start
+  CONFIG: config
+  CONFIG_HOME: jeecg-module-system/jeecg-system-start/src/main/resources/
+  TARGET: $backend_HOME/target
+  B_IMAGE_NAME: $REGISTER/utils/encryption_backend
+  F_IMAGE_NAME: $REGISTER/utils/encryption_frontend
+  APP_USER: 1100 # UID 1100 / username app
+  FRONTEND_SERVICE: nginx
+  BACKEND_SERVICE: backend
+  DC: docker compose
+stages:
+  - build
+  - deploy
+
+build_image_backend:
+  stage: build
+  tags: [office-shell]
+  before_script:
+    - export
+  script:
+    - docker build -f backend/Dockerfile -t $B_IMAGE_NAME:$CI_PIPELINE_ID backend/
+    - !reference [.auth-harbor, script]
+    - docker push $B_IMAGE_NAME:$CI_PIPELINE_ID
+    - docker rmi $B_IMAGE_NAME:$CI_PIPELINE_ID
+  rules:
+    - if: '$CI_COMMIT_TAG !~ /frontend/'
+
+build_image_frontend:
+  stage: build
+  tags: [office-shell]
+  before_script:
+    - export
+  script:
+    - docker build -f frontend/Dockerfile -t $F_IMAGE_NAME:$CI_PIPELINE_ID frontend/
+    - !reference [.auth-harbor, script]
+    - docker push $F_IMAGE_NAME:$CI_PIPELINE_ID
+    - docker rmi $F_IMAGE_NAME:$CI_PIPELINE_ID
+  rules:
+    - if: '$CI_COMMIT_TAG !~ /backend/'
+
+.deploybackend:
+  before_script:
+    - export
+  script:
+  # 这个等下要改的路径  
+    - rsync -av --delete -e "ssh -i $PK -p $SRV_PORT -o StrictHostKeyChecking=no" docker-compose.yml $SRV:$APP_HOME
+    - rsync -av --delete -e "ssh -i $PK -p $SRV_PORT -o StrictHostKeyChecking=no" frontend/www.conf $SRV:$APP_HOME
+    - echo FRONTEND_IMAGE_NAME=$F_IMAGE_NAME >> .env
+    - echo BACKEND_IMAGE_NAME=$B_IMAGE_NAME >> .env
+    - echo VERSION=$CI_PIPELINE_ID >> .env
+    - echo APP_HOME=$APP_HOME >> .env
+    - rsync -av --delete -e "ssh -i $PK -p $SRV_PORT -o StrictHostKeyChecking=no" .env $SRV:$APP_HOME
+    - $SSH "cd $APP_HOME && $DC up -d --no-deps ${BACKEND_SERVICE}"
+
+
+.deployfrontend:
+  before_script:
+    - export
+  script:
+  # 这个等下要改的路径  
+    - rsync -av --delete -e "ssh -i $PK -p $SRV_PORT -o StrictHostKeyChecking=no" docker-compose.yml $SRV:$APP_HOME
+    - rsync -av --delete -e "ssh -i $PK -p $SRV_PORT -o StrictHostKeyChecking=no" frontend/www.conf $SRV:$APP_HOME
+    - echo FRONTEND_IMAGE_NAME=$F_IMAGE_NAME >> .env
+    - echo BACKEND_IMAGE_NAME=$B_IMAGE_NAME >> .env
+    - echo VERSION=$CI_PIPELINE_ID >> .env
+    - echo APP_HOME=$APP_HOME >> .env
+    - rsync -av --delete -e "ssh -i $PK -p $SRV_PORT -o StrictHostKeyChecking=no" .env $SRV:$APP_HOME
+    - $SSH "cd $APP_HOME && $DC up -d --no-deps ${FRONTEND_SERVICE}"
+
+
+backend-test:
+  stage: deploy
+  tags: [office-shell]
+  environment: $CI_JOB_NAME
+  extends:
+    - .deploybackend
+    - .srvInfo-prd
+  rules:
+    - if: '$CI_COMMIT_TAG !~ /frontend/'
+      when: manual
+  
+frontend-test:
+  stage: deploy
+  tags: [office-shell]
+  environment: $CI_JOB_NAME
+  extends:
+    - .deployfrontend
+    - .srvInfo-prd
+  rules:
+    - if: '$CI_COMMIT_TAG !~ /backend/'
+      when: manual

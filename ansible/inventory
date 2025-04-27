@@ -1,0 +1,8 @@
+[mssql]
+10.10.10.52
+[new]
+10.10.10.58
+[test]
+192.168.12.4
+[all:vars]
+ansible_password=flectrag

@@ -1,0 +1,6 @@
+---
+stroge_path:
+  - name: path
+    src: daemon.json
+    des: /etc/docker
+    cmd: kill -SIGHUP $(pidof dockerd)

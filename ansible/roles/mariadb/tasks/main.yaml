@@ -1,0 +1,11 @@
+# roles/mariadb/tasks/main.yaml
+---
+- include_vars: docker.yaml
+- include_vars: mariadb.yaml
+# - name: Include installation tasks
+#   include_tasks: install.yaml
+- name: Include configuration tasks
+  include_tasks: config.yaml
+
+- name: Include start tasks
+  include_tasks: start.yaml

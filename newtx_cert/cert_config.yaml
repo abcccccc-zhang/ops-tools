@@ -1,0 +1,7 @@
+cert_id: 证书id
+cert_path: 证书存放path 例如 ./cert
+SecretId: 账号id
+SecretKey: 账号key
+Endpoint: ssl.tencentcloudapi.com #默认，如果有更新可以查看腾讯的api文档
+DomainName: 域名
+ReplaceDay: 15

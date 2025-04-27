@@ -1,0 +1,21 @@
+---
+- name: Query Proxmox VM Config
+  hosts: localhost
+  gather_facts: no
+  vars:
+    proxmox_api_url: "https://:8006/api2/json/nodes/node100/tasks?vmid=175&typefilter=vzdump"
+    proxmox_api_token: "PVEAPIToken=xxxx@pve!test=d1f0546f-e526-4b4b-9c3a-090c6c992670"
+
+  tasks:
+    - name: Get VM Config
+      uri:
+        url: "{{ proxmox_api_url }}"
+        method: GET
+        headers:
+          Authorization: "{{ proxmox_api_token }}"
+        validate_certs: no
+      register: vm_config
+
+    - name: Show VM Config
+      debug:
+        var: vm_config.json

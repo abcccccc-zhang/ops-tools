@@ -1,0 +1,46 @@
+- name: Create logical volume
+  hosts: new
+  vars_files:
+    - opc_storage_vars.yml
+  become: true
+  tasks:
+    - name: 新建第一个磁盘分区
+      parted:
+        device: "{{ item.devices }}"
+        number: "{{ item.number }}"
+        state: present
+        part_end: "{{ item.end }}"
+      loop: "{{ partitions }}"
+    - name: 创建物理卷
+      lvg:
+        vg: "{{ item.name }}"
+        pvs: "{{ item.devices }}"
+      loop: "{{  volume_groups }}"
+    - block:
+        - name: Create lv01 of 1500M
+          lvol:
+            vg: "{{ item.vgroup }}"
+            lv: "{{ item.name }}"
+            size: "{{ item.size }}"
+          loop: "{{  logical_volumes }}"
+        - name: 格式化
+          filesystem:
+            fstype: xfs
+            dev: "/dev/{{ item.vgroup }}/{{ item.name }}"
+          loop: "{{  logical_volumes }}"
+        - name: 持久挂载lv分区到挂载点
+          mount:
+            path: "{{ item.mount_path }}"
+            src: "/dev/{{ item.vgroup }}/{{ item.name }}"
+            fstype: xfs
+            opts: noatime
+            state: mounted
+          loop: "{{ logical_volumes }}"
+      rescue:
+        - debug:
+            msg: Could not create logical volume of that size
+    - name: Check if volume group exists
+      debug:
+        msg: Volume group does not exist
+      when: ansible_lvm.vgs.vg0 is undefined
+      

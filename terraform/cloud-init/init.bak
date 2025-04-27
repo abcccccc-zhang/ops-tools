@@ -1,0 +1,97 @@
+#cloud-config
+hostname: ${hostname}
+manage_etc_hosts: true
+user: k3s
+password: ${passwd}
+ssh_authorized_keys:
+  - ${pubkey}
+chpasswd:
+  expire: False
+users:
+  - default
+# ------------------
+# timezone 设置一下时区
+# ------------------
+timezone: Asia/Shanghai
+# ------------------
+# packages 安装一些软件
+# ------------------
+runcmd:
+  - [curl, -sfL, https://rancher-mirror.rancher.cn/k3s/k3s-install.sh, |, INSTALL_K3S_MIRROR=cn, K3S_TOKEN=${token}, K3S_KUBECONFIG_MODE="644", sh, -s, - , server, --cluster-init, --disable=servicelb, --disable=traefik]
+  - [cp, /var/lib/rancher/k3s/agent/etc/containerd/config.toml, /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl]
+  - [sed, -i, 's|/var/lib/rancher/k3s/agent/etc/containerd/certs.d|/etc/containerd/certs.d|g', /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl]
+  - [systemctl, restart, k3s]
+# ------------------
+# write some config：写文件
+# ------------------
+write_files:
+- content: |
+    server = "https://docker.io"
+    [host."http://192.168.1.11:5114"]
+    capabilities = ["pull", "resolve","push"]
+    skip_verify = true
+  path: /etc/containerd/certs.d/docker.io/hosts.toml
+  permissions: '0644'
+
+# ------------------
+# runcmd 执行一些命令
+# ------------------
+
+# ------------------
+# power_state 在cloud-init完成后重启一次
+# ------------------
+power_state:
+    delay: now
+    mode: reboot
+    message: Rebooting machine
+    condition: true
+
+# ------------------
+# final_message
+# ------------------
+final_message: |
+  cloud-init has finished
+  version: 1
+  timestamp: $timestamp
+  datasource: $datasource
+  uptime: $uptime
+
+
+
+#cloud-config
+hostname: example-host
+manage_etc_hosts: true
+timezone: Asia/Shanghai
+
+users:
+  - name: k3s
+    passwd: "${passwd}"
+    ssh_authorized_keys:
+      - "${pubkey}"
+    lock_passwd: false
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    shell: /bin/bash
+
+write_files:
+- content: |
+    server = "https://docker.io"
+    [host."http://192.168.1.11:5114"]
+    capabilities = ["pull", "resolve","push"]
+    skip_verify = true
+  path: /etc/containerd/certs.d/docker.io/hosts.toml
+  permissions: '0644'
+
+runcmd:
+  - "curl -sfL https://rancher-mirror.rancher.cn/k3s/k3s-install.sh | INSTALL_K3S_MIRROR=cn K3S_TOKEN=${token} K3S_KUBECONFIG_MODE='644' sh -s - server --cluster-init --disable=servicelb --disable=traefik"
+  - "cp /var/lib/rancher/k3s/agent/etc/containerd/config.toml /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl"
+  - "sed -i 's|/var/lib/rancher/k3s/agent/etc/containerd/certs.d|/etc/containerd/certs.d|g' /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl"
+  - "systemctl restart k3s"
+
+power_state:
+  delay: now
+  mode: reboot
+  message: Rebooting machine
+  condition: true
+
+final_message: |
+  cloud-init has finished

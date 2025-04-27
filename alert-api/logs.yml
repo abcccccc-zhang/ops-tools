@@ -1,0 +1,5 @@
+filename: "test123456.log"   # 日志文件名
+maxSize: 1                     # 单个日志文件最大大小（MB）
+maxBackups: 7                   # 保留最大备份文件数
+maxAge: 2                    # 保留日志的最大天数
+compress: true                  # 是否启用压缩

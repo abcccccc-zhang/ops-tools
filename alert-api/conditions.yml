@@ -1,0 +1,11 @@
+- fields:
+    alertname: MySQLDown
+      # status: firing
+      #    description: MySQL mysql on 192.168.12.4:9104 is not up.
+      # summary: MySQL not up
+  action: restart_service
+
+
+- fields:
+    alertname: mysql
+  action: restart_service

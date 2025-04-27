@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  nginx:
+    image: nginx-unprivileged
+    restart: always
+    environment:
+      - TZ=Asia/Shanghai
+    ports:
+      - 80:8080
+      - 5173:5173
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200m"
+        max-file: "5"
+    ulimits:
+      nofile:
+        soft: 65535
+        hard: 65535

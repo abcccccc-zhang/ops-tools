@@ -1,0 +1,66 @@
+package config
+
+import (
+	"log"
+	"os"
+	"sync"
+	"alter-api/models"
+	"gopkg.in/yaml.v2"
+)
+
+// ConfigCache 用于缓存加载的配置文件
+var configCache models.Config
+var cacheLoaded bool
+var mu sync.Mutex
+
+// LoadConfig 加载条件和动作配置
+func LoadConfig() (models.Config, error) {
+	mu.Lock()
+	defer mu.Unlock()
+
+	// 如果配置已经加载过了，直接返回缓存的配置
+	if cacheLoaded {
+		return configCache, nil
+	}
+
+	// 加载条件文件
+	conditionFile, err := os.ReadFile("conditions.yml")
+	if err != nil {
+		log.Printf("Error reading conditions file: %v", err)
+		return configCache, err
+	}
+	err = yaml.Unmarshal(conditionFile, &configCache.Conditions)
+	if err != nil {
+		log.Printf("Error unmarshalling conditions file: %v", err)
+		return configCache, err
+	}
+
+	// 加载动作文件
+	actionFile, err := os.ReadFile("actions.yml")
+	if err != nil {
+		log.Printf("Error reading actions file: %v", err)
+		return configCache, err
+	}
+	err = yaml.Unmarshal(actionFile, &configCache.Actions)
+	if err != nil {
+		log.Printf("Error unmarshalling actions file: %v", err)
+		return configCache, err
+	}
+
+	// 配置加载完成，设置缓存标记
+	cacheLoaded = true
+
+	// 返回加载的配置
+	return configCache, nil
+}
+
+// ReloadConfig 用于重新加载配置文件
+func ReloadConfig() error {
+	mu.Lock()
+	defer mu.Unlock()
+
+	// 清空缓存并重新加载配置文件
+	cacheLoaded = false
+	_, err := LoadConfig()
+	return err
+}

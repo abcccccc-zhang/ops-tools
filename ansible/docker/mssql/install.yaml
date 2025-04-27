@@ -1,0 +1,20 @@
+---
+- name: Deploy Docker Compose Application
+  hosts: test  # 替换为你的目标主机组
+  become: true  # 提升权限
+  vars_files:
+    - vars.yaml
+  tasks:
+    - name: create folder
+      command: "mkdir -p {{ item.path }}"
+      loop: "{{ stroge_path }}"
+    - name: Copy Docker Compose file
+      copy:
+        src: "{{ item.compose_file }}"
+        dest: "{{ item.path }}/{{ item.compose_file }}"  # 目标路径
+      loop: "{{ stroge_path }}"
+    - name: Run Docker Compose
+      command: "docker compose -f {{ item.path }}/{{ item.compose_file }} up -d"
+      args:
+        chdir: "{{ item.path }}"  # Docker Compose 文件所在目录
+      loop: "{{ stroge_path }}"

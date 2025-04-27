@@ -1,0 +1,19 @@
+---
+- name: Create disk for VM
+  hosts: localhost
+  tasks:
+    - name: Add SCSI disk to VM
+      uri:
+        url: "https://xxx:8006/api2/json/nodes/node100/qemu/178/config"
+        method: POST
+        headers:
+          Authorization: "PVEAPIToken=xxx@pve!test=d1f0546f-e526-4b4b-9c3a-090c6c992670"
+        body:
+          scsi1: "local-lvm:vm-178-disk-0,iothread=1,size=100G"
+          # scsi1: "none"
+        body_format: form-urlencoded
+        validate_certs: no
+      register: result
+
+    - debug:
+        var: result

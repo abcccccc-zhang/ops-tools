@@ -1,0 +1,41 @@
+---
+- name: Remove scsi1 disk from VM
+  hosts: localhost
+  tasks:
+    # - name: Detach scsi1 disk from VM 175
+    #   uri:
+    #     url: "https://10.10.10.101:8006/api2/json/nodes/node100/qemu/175/config"
+    #     method: POST
+    #     headers:
+    #       Authorization: "PVEAPIToken=blue@pve!test=d1f0546f-e526-4b4b-9c3a-090c6c992670"
+    #     body:
+    #       scsi1: "none"
+    #     body_format: json
+    #     validate_certs: no
+    #   register: detach_response
+    # - debug:
+    #     var: detach_response
+    # - name: Delete logical volume for scsi1
+    #   uri:
+    #     url: "https://10.10.10.101:8006/api2/json/nodes/node100/storage/local-lvm/content/vm-175-disk-1"
+    #     method: DELETE
+    #     headers:
+    #       Authorization: "PVEAPIToken=blue@pve!test=d1f0546f-e526-4b4b-9c3a-090c6c992670"
+    #     validate_certs: no
+    #   register: detach_response
+
+    - name: Remove unused0 from VM 175
+      uri:
+        url: "https://:8006/api2/json/nodes/node100/qemu/178/config"
+        method: POST
+        headers:
+          Authorization: "PVEAPIToken=xxxx@pve!test=d1f0546f-e526-4b4b-9c3a-090c6c992670"
+        body:
+          delete: "scsi2"
+          force: true
+        body_format: json
+        validate_certs: no
+      register: remove_response
+    - debug:
+        var: remove_response
+

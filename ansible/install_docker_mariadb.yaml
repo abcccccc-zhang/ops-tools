@@ -1,0 +1,8 @@
+# install.yaml
+---
+- name: Deploy Docker Compose Application
+  hosts: test  # 替换为你的目标主机组
+  become: true  # 提升权限
+  roles:
+    - mariadb
+

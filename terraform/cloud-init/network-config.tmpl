@@ -1,0 +1,17 @@
+#cloud-config
+version: 1
+config:
+    - type: physical
+      name: eth0
+      mac_address: "${macaddr}"
+      subnets:
+      - type: static
+        address: '${ip}'
+        netmask: '255.255.255.0'
+        gateway: '192.168.1.222'
+    - type: nameserver
+      address:
+      - '8.8.8.8'
+      - '114.114.114.114'
+      search:
+      - '.'

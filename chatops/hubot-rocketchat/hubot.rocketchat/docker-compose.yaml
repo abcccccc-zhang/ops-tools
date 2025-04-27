@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  hubot:
+    image: rocketchat/hubot-rocketchat
+    container_name: hubot
+    environment:
+      - ROCKETCHAT_URL=10.10.10.72:3000
+      - ROCKETCHAT_ROOM=general
+      - RESPOND_TO_DM=true
+      - ROCKETCHAT_USER=bot
+      - ROCKETCHAT_PASSWORD=bot
+      - ROCKETCHAT_AUTH=123456
+      - BOT_NAME=bot
+      - EXTERNAL_SCRIPTS=hubot-pugme,hubot-help
+      - NPM_CONFIG_REGISTRY=http://registry.npm.taobao.org
+    volumes:
+      - ./script:/home/hubot/scripts  # 将当前工作目录下的 script 文件夹挂载到容器内的 /home/hubot/scripts
+    stdin_open: true
+    tty: true
+

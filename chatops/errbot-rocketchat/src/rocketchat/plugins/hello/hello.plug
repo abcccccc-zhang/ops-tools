@@ -1,0 +1,10 @@
+[Core]
+name = hello
+module = hello
+
+[Documentation]
+description = hello
+
+[Python]
+version = 3
+

@@ -1,0 +1,29 @@
+---
+- name: Create folder
+  file:
+    path: "{{ item.path }}"
+    state: directory
+  loop: "{{ stroge_path }}"
+
+- name: Copy Docker Compose file
+  copy:
+    src: "{{ item.compose_file }}"
+    dest: "{{ item.path }}/{{ item.compose_file }}"  # 目标路径
+  loop: "{{ stroge_path }}"
+
+- name: Create daemon folder
+  file:
+    path: "{{ item.path }}"
+    state: directory
+  loop: "{{ docker_stroge_path }}"
+
+- name: Copy Docker
+  copy:
+    src: "{{ item.file }}"
+    dest: "{{ item.path }}/{{ item.file }}"  # 目标路径
+  loop: "{{ docker_stroge_path }}"
+  register: copy_results
+
+- name: reload docker
+  shell: "/usr/bin/kill -SIGHUP $(pidof dockerd)"
+  when: copy_results is not skipped

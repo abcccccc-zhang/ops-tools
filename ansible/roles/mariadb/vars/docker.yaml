@@ -1,0 +1,5 @@
+---
+docker_stroge_path:
+  - name: path
+    path: /etc/docker
+    file: daemon.json

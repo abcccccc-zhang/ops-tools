@@ -1,0 +1,6 @@
+restart_service:
+  type: command
+  command: "touch 668999"
+cpu:
+  type: command
+  command: "touch cpu"

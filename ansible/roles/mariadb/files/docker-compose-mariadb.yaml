@@ -1,0 +1,17 @@
+version: '3.1'
+services:
+  mariadb:
+    image: mariadb
+    restart: always
+    container_name: mariadb
+    ports:
+      # 端口映射
+      - 3306:3306
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - ./data/mariadb:/var/lib/mysql
+      - ./config/mariadb-config:/etc/mysql/conf.d
+    environment:
+      TIME_ZONE: Asia/Shanghai
+        # MYSQL_ROOT_PASSWORD: root123
+      MARIADB_ROOT_PASSWORD: root123

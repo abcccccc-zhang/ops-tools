@@ -1,0 +1,27 @@
+services:
+  init:
+    image: &mssqlImage mcr.microsoft.com/mssql/server:2019-CU9-ubuntu-18.04
+    user: root
+    entrypoint:
+      - "chown"
+      - "-R"
+      - "10001:10001"
+      - "/opt/mssql"
+    volumes:
+      - /opt/mssql:/var/opt/mssql
+  mssql:
+    image: *mssqlImage
+    environment:
+    - TZ=Asia/Shanghai
+    - ACCEPT_EULA=Y
+    - MSSQL_AGENT_ENABLED=true
+    - SA_PASSWORD=dev@123,
+    ports:
+    - 1433:1433
+    volumes:
+      - /opt/mssql/sqlserver2019_data:/var/opt/mssql
+    mem_limit: 4g
+    mem_swappiness: 1
+    restart: always
+    depends_on:
+      - init

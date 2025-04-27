@@ -1,0 +1,5 @@
+---
+stroge_path:
+  - name: path
+    path: /opt/mariadb
+    compose_file: docker-compose-mariadb.yaml

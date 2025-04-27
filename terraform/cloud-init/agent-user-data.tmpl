@@ -1,0 +1,57 @@
+#cloud-config
+hostname: ${hostname}
+manage_etc_hosts: true
+user: k3s
+password: ${passwd}
+ssh_authorized_keys:
+  - ${pubkey}
+chpasswd:
+  expire: False
+users:
+  - default
+# ------------------
+# timezone 设置一下时区
+# ------------------
+write_files:
+- content: |
+    server = "https://docker.io"
+    [host."http://192.168.1.11:5114"]
+    capabilities = ["pull", "resolve","push"]
+    skip_verify = true
+  path: /etc/containerd/certs.d/docker.io/hosts.toml
+  permissions: '0644'
+timezone: Asia/Shanghai
+runcmd:
+  - hostnamectl set-hostname ${hostname}
+  - yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+  - sed -i 's+download.docker.com+mirrors.aliyun.com/docker-ce+' /etc/yum.repos.d/docker-ce.repo
+  - yum -y install docker-ce
+  - systemctl start docker
+  - systemctl enable docker
+  - groupadd docker
+  - gpasswd -a kevin docker
+  - chmod a+rw /var/run/docker.sock
+# ------------------
+# packages 安装一些软件
+# ------------------
+# ------------------
+# write some config：写文件
+# ------------------
+# ------------------
+# power_state 在cloud-init完成后重启一次
+# ------------------
+# power_state:
+#     delay: now
+#     mode: reboot
+#     message: Rebooting machine
+#     condition: true
+
+# ------------------
+# final_message
+# ------------------
+final_message: |
+  cloud-init has finished
+  version: 1
+  timestamp: $timestamp
+  datasource: $datasource
+  uptime: $uptime

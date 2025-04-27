@@ -1,0 +1,145 @@
+package handler
+
+import (
+	exeaction "alter-api/action"
+	"alter-api/config"
+	"alter-api/models"
+	"bytes"
+	"encoding/json"
+	"fmt"
+	"io"
+	"log"
+	"net/http"
+)
+
+// AlertHandler is the API handler for receiving Alertmanager webhook data
+func AlertHandler(w http.ResponseWriter, r *http.Request) {
+	defer r.Body.Close()
+	log.Println("Received a new alert")
+	body, err := io.ReadAll(r.Body)
+	if err != nil {
+		http.Error(w, "Failed to read request body", http.StatusBadRequest)
+		return
+	}
+	r.Body = io.NopCloser(bytes.NewReader(body))
+
+	// Log the request body for debugging
+	log.Printf("Request Body: %s", body)
+
+	// Read and parse the incoming JSON payload
+	var alert models.Alert
+	err = json.NewDecoder(r.Body).Decode(&alert)
+	if err != nil {
+		log.Printf("Error decoding JSON: %v", err)
+		http.Error(w, "Invalid JSON", http.StatusBadRequest)
+		return
+	}
+
+	// Load the conditions and actions from YAML files
+	config, err := config.LoadConfig()
+	if err != nil {
+		log.Printf("Error loading config: %v", err)
+		http.Error(w, fmt.Sprintf("Error loading config: %v", err), http.StatusInternalServerError)
+		return
+	}
+
+	// Match the alert with conditions and execute corresponding action
+	result, err := matchAndExecute(alert, config.Conditions, config.Actions)
+	if err != nil {
+		log.Printf("Error executing action: %v", err)
+		http.Error(w, fmt.Sprintf("Error executing action: %v", err), http.StatusInternalServerError)
+		return
+	}
+
+	// Return the result
+	log.Printf("Result: %s", result)
+
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte(result))
+}
+
+// matchAndExecute checks if the alert matches any condition and executes the corresponding action
+func matchAndExecute(alert models.Alert, conditions []models.Condition, actions map[string]models.Action) (string, error) {
+	// log.Printf("Matching alert: %v", alert)
+	matches := true
+	for _, condition := range conditions {
+		log.Printf("condition: %v", condition)
+		for key, value := range condition.Fields {
+			if !matchValue(key, value, &alert) {
+				matches = false
+				// log.Printf("unmatch key: %s value: %s", key, value)
+				break
+			}
+		}
+		if matches {
+			// log.Printf("Condition matched: %v", condition)
+
+			// 根据条件找到对应的 Action
+			action, found := actions[condition.Action]
+			if !found {
+				log.Printf("Action not found: %s", condition.Action)
+				return "Action not found", nil
+			}
+
+			// 执行动作
+			err := exeaction.ExecuteAction(action, condition)
+			if err != nil {
+				log.Printf("Failed to execute action: %v", err)
+				return "Failed to execute action", err
+			}
+
+			// log.Printf("Action executed successfully")
+			return "Action executed successfully", nil
+		}
+		matches = true
+	}
+
+	log.Printf("No matching condition found for alert: %v", alert)
+	return "No matching action found", nil
+}
+
+// matchValue checks if the given key and value match in the alert
+func matchValue(ckey string, cvalue string, alert *models.Alert) bool {
+	switch ckey {
+	case "receiver":
+		return cvalue == alert.Receiver
+	case "status":
+		return cvalue == alert.Status
+	case "externalurl":
+		return cvalue == alert.ExternalURL
+	case "version":
+		return cvalue == alert.Version
+	case "groupkey":
+		return cvalue == alert.GroupKey
+	case "truncatedalerts":
+		return cvalue == fmt.Sprintf("%d", alert.TruncatedAlerts)
+	default:
+		// Check in Alerts
+		for _, alertStruct := range alert.Alerts {
+			// fmt.Println("-----", alertStruct.Labels["alertname"], ckey)
+			if v, ok := alertStruct.Labels[ckey]; ok && v == cvalue {
+				return true
+			}
+			if v, ok := alertStruct.Annotations[ckey]; ok && v == cvalue {
+				return true
+			}
+		}
+
+		// Check in GroupLabels
+		if v, ok := alert.GroupLabels[ckey]; ok && v == cvalue {
+			return true
+		}
+
+		// Check in CommonLabels
+		if v, ok := alert.CommonLabels[ckey]; ok && v == cvalue {
+			return true
+		}
+
+		// Check in CommonAnnotations
+		if v, ok := alert.CommonAnnotations[ckey]; ok && v == cvalue {
+			return true
+		}
+
+		return false
+	}
+}

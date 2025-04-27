@@ -1,0 +1,41 @@
+hostname: ${hostname}
+manage_etc_hosts: true
+user: k3s
+password: ${passwd}
+ssh_authorized_keys:
+  - ${pubkey}
+chpasswd:
+  expire: False
+users:
+  - default
+
+timezone: Asia/Shanghai
+packages:
+  - yum-utils
+  - device-mapper-persistent-data
+  - lvm2
+write_files:
+  - content: |
+      {
+          "registry-mirrors": [
+                  "https://hub-mirror.c.163.com",
+                  "https://mirror.baidubce.com",
+                  "https://docker.mirrors.ustc.edu.cn"
+          ]
+      }
+    path: /etc/docker/daemon.json
+    permissions: '0644'
+
+runcmd:
+  - hostnamectl set-hostname ${hostname}
+  - yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+  - sed -i 's+download.docker.com+mirrors.aliyun.com/docker-ce+' /etc/yum.repos.d/docker-ce.repo
+  - yum -y install docker-ce
+  - systemctl start docker
+  - systemctl enable docker
+  - groupadd docker
+  - gpasswd -a kevin docker
+  - chmod a+rw /var/run/docker.sock
+
+final_message: |
+  cloud-init has finished
