@@ -7,24 +7,32 @@ import (
 	"log"
 	"net/http"
 	"os/exec"
+	"regexp"
+	"strings"
 
 	"alter-api/models"
 )
 
 // ExecuteAction 根据动作类型执行相应的操作
-func ExecuteAction(action models.Action, conditions models.Condition) error {
+func ExecuteAction(action models.Action, conditions models.Condition, msg string) error {
+	ip := ""
+	if strings.Contains(action.Command, "{{ip}}") {
+		re := regexp.MustCompile(`\b(?:\d{1,3}\.){3}\d{1,3}\b`)
+		ip = re.FindString(msg)
+	}
+	log.Printf("msg: %s", msg)
 	switch action.Type {
 	case "command":
-		cmd := exec.Command("sh", "-c", action.Command)
-		log.Printf("exec command: %s", action.Command)
+		cmdStr := strings.ReplaceAll(action.Command, "{{ip}}", ip)
+		log.Printf("exec command: %s", cmdStr)
+		cmd := exec.Command("sh", "-c", cmdStr)
 
-		output, err := cmd.CombinedOutput() // 捕获标准输出和错误输出
+		output, err := cmd.CombinedOutput()
 		if err != nil {
 			log.Printf("exec command fail: %v", err)
 			log.Printf("command output: %s", string(output))
 			return err
 		}
-
 		log.Printf("command output: %s", string(output))
 		return nil
 

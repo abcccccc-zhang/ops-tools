@@ -1,0 +1,5 @@
+Feishu:
+  webhook: "https://open.feishu.cn/open-apis/bot/v2/hook/1eda88d8-531f-4f7c-95c2-7402583297bd"
+  sign: LQuU2Sw6YEmgkL3sZ1PB9f
+  template:
+    custom_path: .\template\feishu.tmpl

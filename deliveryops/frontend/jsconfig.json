@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "lib": ["es6"], // 或者更高版本，比如 "es2020"
+    "target": "es6", // 确保 target 也是正确的 ECMAScript 版本
+  },
+  "exclude": ["node_modules", "dist"]
+}

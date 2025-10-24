@@ -1,6 +1,6 @@
 restart_service:
   type: command
-  command: "touch 668999"
+  command: "echo {{ip}}"
 cpu:
   type: command
   command: "touch cpu"

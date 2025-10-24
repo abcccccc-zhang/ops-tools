@@ -6,24 +6,42 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
 // Reloadcfg 处理器用于处理 /reload 路由
-func Reloadcfg(w http.ResponseWriter, r *http.Request) {
+// func Reloadcfg(w http.ResponseWriter, r *http.Request) {
+// 	fmt.Println("-----------------------------------------")
+// 	// 调用 ReloadConfig 来重新加载配置
+// 	err := config.ReloadConfig() // 假设 ReloadConfig 返回错误
+// 	if err != nil {
+// 		// 如果发生错误，返回500服务器错误
+// 		http.Error(w, "Failed to reload config", http.StatusInternalServerError)
+// 		log.Printf("Error reloading config: %v", err)
+// 		return
+// 	}
+// 	// 配置重新加载成功后，记录日志
+// 	log.Println("Config reloaded successfully")
+
+//		// 配置重新加载成功后，记录日志
+//		log.Println("Config reloaded successfully and log configuration updated.")
+//		// 返回一个简单的响应给客户端
+//		w.Write([]byte("Config reloaded successfully"))
+//	}
+func Reloadcfg(c *gin.Context) {
 	fmt.Println("-----------------------------------------")
+
 	// 调用 ReloadConfig 来重新加载配置
-	err := config.ReloadConfig() // 假设 ReloadConfig 返回错误
+	err := config.ReloadConfig()
 	if err != nil {
-		// 如果发生错误，返回500服务器错误
-		http.Error(w, "Failed to reload config", http.StatusInternalServerError)
 		log.Printf("Error reloading config: %v", err)
+		c.String(http.StatusInternalServerError, "Failed to reload config")
 		return
 	}
-	// 配置重新加载成功后，记录日志
-	log.Println("Config reloaded successfully")
 
-	// 配置重新加载成功后，记录日志
+	log.Println("Config reloaded successfully")
 	log.Println("Config reloaded successfully and log configuration updated.")
-	// 返回一个简单的响应给客户端
-	w.Write([]byte("Config reloaded successfully"))
+
+	c.String(http.StatusOK, "Config reloaded successfully")
 }

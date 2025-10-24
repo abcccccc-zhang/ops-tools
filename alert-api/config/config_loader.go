@@ -17,24 +17,7 @@ var cacheLoaded bool
 var mu sync.Mutex
 
 func InitLogger(logConfig models.LogConfig) {
-	// 读取 logs.yaml 配置
-	// var logConfig models.LogConfig
-	// config, err := config.LoadConfig() // 使用 LoadConfig 函数来加载配置
-	// if err != nil {
-	// 	// // 使用默认配置
-	// 	// logConfig = models.LogConfig{
-	// 	// 	Filename:   "logs/alert_handler.log",
-	// 	// 	MaxSize:    10,
-	// 	// 	MaxBackups: 5,
-	// 	// 	MaxAge:     1,
-	// 	// 	Compress:   true,
-	// 	// }
-	// 	log.Printf("Error reading logs.yaml: %v. Using default log configuration.", err)
-	// } else {
-	// 	logConfig = config.LogConfig // 从加载的配置中获取日志配置
-	// }
 
-	// 确保 logs 目录存在，如果不存在则创建
 	if err := ensureLogsDirExists(); err != nil {
 		log.Fatalf("Failed to create logs directory: %v", err)
 	}
@@ -61,33 +44,28 @@ func ensureLogsDirExists() error {
 	return nil
 }
 
+func readYAMLFile(path string, out interface{}) error {
+	data, err := os.ReadFile(path)
+	if err != nil {
+		return fmt.Errorf("read file %s failed: %w", path, err)
+	}
+	return yaml.Unmarshal(data, out)
+}
+
 func LoadConfig() (models.Config, error) {
+	//mu.Lock()
+	//defer mu.Unlock()
 	if cacheLoaded {
 		return configCache, nil
 	}
+	// 只在需要初始化时上锁
+	mu.Lock()
+	defer mu.Unlock()
 
-	conditionFile, err := os.ReadFile("conditions.yml")
-	if err != nil {
-		log.Printf("Error reading conditions file: %v", err)
-		return configCache, err
+	// 双重检查，防止并发竞争加载
+	if cacheLoaded {
+		return configCache, nil
 	}
-	err = yaml.Unmarshal(conditionFile, &configCache.Conditions)
-	if err != nil {
-		log.Printf("Error unmarshalling conditions file: %v", err)
-		return configCache, err
-	}
-
-	actionFile, err := os.ReadFile("actions.yml")
-	if err != nil {
-		log.Printf("Error reading actions file: %v", err)
-		return configCache, err
-	}
-	err = yaml.Unmarshal(actionFile, &configCache.Actions)
-	if err != nil {
-		log.Printf("Error unmarshalling actions file: %v", err)
-		return configCache, err
-	}
-
 	logConfigFile, err := os.ReadFile("logs.yml")
 	if err != nil {
 		// 如果读取 logs.yaml 失败，使用默认的日志配置
@@ -116,17 +94,27 @@ func LoadConfig() (models.Config, error) {
 		InitLogger(configCache.LogConfig)
 	}
 
+	if err := readYAMLFile("conditions.yml", &configCache.Conditions); err != nil {
+		log.Printf("[WARN] %v", err)
+	}
+
+	if err := readYAMLFile("actions.yml", &configCache.Actions); err != nil {
+		log.Printf("[WARN] %v", err)
+	}
+
+	if err := readYAMLFile("config.yml", &configCache.Configuration); err != nil {
+		log.Printf("[WARN] %v", err)
+	}
+
 	cacheLoaded = true
 	return configCache, nil
 }
 
 func ReloadConfig() error {
 	mu.Lock()
-	defer mu.Unlock()
-	// 清理掉旧的 configCache 数据
-	configCache = models.Config{}
 	cacheLoaded = false
-
+	configCache = models.Config{}
+	mu.Unlock()
 	log.Println("Start reloading config...")
 	cfg, err := LoadConfig()
 	if err != nil {
@@ -135,16 +123,5 @@ func ReloadConfig() error {
 		log.Println("Finish reloading config...")
 	}
 	InitLogger(cfg.LogConfig)
-	// 配置重新加载成功后，初始化日志
-	// cfg, err := LoadConfig()
-	// if err != nil {
-	// 	// 如果加载新配置失败，返回500服务器错误
-	// 	// http.Error(w, "Failed to load new config", http.StatusInternalServerError)
-	// 	log.Printf("Error loading new config: %v", err)
-	// 	// return
-	// }
-
-	// // 使用新加载的日志配置来初始化日志
-	// handler.InitLogger(cfg.LogConfig) // 这里调用 InitLogger 函数来更新日志配置
 	return err
 }

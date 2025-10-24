@@ -1,0 +1,25 @@
+{
+  "msg_type": "post",
+  "sign": "{{.Sign}}",
+  "timestamp": "{{.Timestamp}}",
+  "content": {
+    "post": {
+      "zh_cn": {
+        "title": "告警: {{.Alertname}}",
+        "content": [
+          [
+            {
+              "tag": "text",
+              "text": "告警内容: {{.Msg}} \n 时间: {{.Now}}"
+            },
+            {
+              "tag": "a",
+              "text": "告警链接",
+              "href": "{{.URL}}"
+            }
+          ]
+        ]
+      }
+    }
+  }
+}

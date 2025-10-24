@@ -1,0 +1,10 @@
+password: "c40d3e66d040d257ba32e72b6f256947"
+action:
+  shell-script: "./action.sh"
+log:
+  filename: "logs/alert-handler.log"
+  max_size: 5
+  max_backups: 3
+  max_age: 7
+  compress: true
+condition: 'hookname == "push_hooks" && branch == "refs/heads/master"'

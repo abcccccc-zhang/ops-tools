@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  gitee-webhook:
+    image: gitee-webhook:latest
+    container_name: gitee-webhook
+    restart: always
+    ports:
+      - "7878:7878"
+    volumes:
+      - ./config.yaml:/app/config.yaml:ro
+      - ./scripts:/app/scripts:ro
+      - ./logs:/app/logs
+    environment:
+      - TZ=Asia/Shanghai

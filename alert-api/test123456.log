@@ -787,3 +787,1350 @@
 2025/01/13 16:17:10 exec command: touch 668999
 2025/01/13 16:17:10 command output: 
 2025/01/13 16:17:10 Result: Action executed successfully
+2025/05/30 16:43:33 Result: 
+2025/05/30 16:43:53 Received a new alarm
+2025/05/30 16:43:53 Contents of request body (first 2 KB): {
+  "receiver": "team-X",
+  "status": "firing",
+  "alerts": [
+    {
+      "labels": {
+        "alertname": "HighCPUUsage",
+        "instance": "host1.example.com",
+        "severity": "critical"
+      },
+      "annotations": {
+        "summary": "CPU usage is over 90%",
+        "description": "The CPU usage on host1 is above 90% for the last 5 minutes."
+      }
+    }
+  ],
+  "groupLabels": {
+    "alertname": "HighCPUUsage"
+  },
+  "commonLabels": {
+    "alertname": "HighCPUUsage",
+    "severity": "critical"
+  },
+  "commonAnnotations": {
+    "summary": "CPU usage is over 90%"
+  },
+  "externalURL": "http://alertmanager.example.com",
+  "version": "4",
+  "groupKey": "some_group_key",
+  "truncatedAlerts": 0
+}
+2025/05/30 16:43:53 Result: 
+2025/05/30 16:45:15 Result: 
+2025/05/30 16:47:56 exec command: touch 668999
+2025/05/30 16:47:56 exec command fail: exec: "sh": executable file not found in %PATH%
+2025/05/30 16:47:56 command output: 
+2025/05/30 16:47:56 Action execution failed: exec: "sh": executable file not found in %PATH%
+2025/05/30 16:47:56 Failed to execute action: exec: "sh": executable file not found in %PATH%
+2025/05/30 16:48:12 Received a new alarm
+2025/05/30 16:48:12 Contents of request body (first 2 KB): {
+    "receiver": "mail",
+    "status": "firing",
+    "alerts": [
+      {
+        "status": "firing",
+        "labels": {
+          "alertname": "MySQLDown",
+          "instance": "192.168.12.4:9104",
+          "job": "mysql",
+          "monitor": "codelab-monitor",
+          "severity": "critical"
+        },
+        "annotations": {
+          "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+          "summary": "MySQL not up"
+        },
+        "startsAt": "2025-01-07T06:53:49.219Z",
+        "endsAt": "0001-01-01T00:00:00Z",
+        "generatorURL": "http://e51547470358:9090/graph?g0.expr=mysql_up+%21%3D+1\u0026g0.tab=1",
+        "fingerprint": "979f8a56c0fb6489"
+      }
+    ],
+    "groupLabels": {
+      "alertname": "MySQLDown"
+    },
+    "commonLabels": {
+      "alertname": "MySQLDown",
+      "instance": "192.168.12.4:9104",
+      "job": "mysql",
+      "monitor": "codelab-monitor",
+      "severity": "critical"
+    },
+    "commonAnnotations": {
+      "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+      "summary": "MySQL not up"
+    },
+    "externalURL": "http://aa518e8cae52:9093",
+    "version": "4",
+    "groupKey": "{}:{alertname=\"MySQLDown\"}",
+    "truncatedAlerts": 0
+  }
+2025/05/30 16:48:12 exec command: touch 668999
+2025/05/30 16:48:12 exec command fail: exec: "sh": executable file not found in %PATH%
+2025/05/30 16:48:12 command output: 
+2025/05/30 16:48:12 Action execution failed: exec: "sh": executable file not found in %PATH%
+2025/05/30 16:48:12 Failed to execute action: exec: "sh": executable file not found in %PATH%
+2025/05/30 16:53:08 exec command: touch 668999
+2025/05/30 16:53:08 exec command fail: exec: "sh": executable file not found in %PATH%
+2025/05/30 16:53:08 command output: 
+2025/05/30 16:53:08 Action execution failed: exec: "sh": executable file not found in %PATH%
+2025/05/30 16:53:08 Failed to execute action: exec: "sh": executable file not found in %PATH%
+2025/05/30 16:54:29 Received a new alarm
+2025/05/30 16:54:29 Contents of request body (first 2 KB): {
+    "receiver": "webhook",
+    "status": "firing",
+    "alerts": [
+      {
+        "status": "firing",
+        "labels": {
+          "alertname": "hahaha",
+          "instance": "192.168.12.4:9104",
+          "job": "mysql",
+          "monitor": "codelab-monitor",
+          "severity": "critical"
+        },
+        "annotations": {
+          "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+          "summary": "MySQL not up"
+        },
+        "startsAt": "2025-01-07T06:53:49.219Z",
+        "endsAt": "0001-01-01T00:00:00Z",
+        "generatorURL": "http://e51547470358:9090/graph?g0.expr=mysql_up+%21%3D+1\u0026g0.tab=1",
+        "fingerprint": "979f8a56c0fb6489"
+      }
+    ],
+    "groupLabels": {
+      "alertname": "asdasd"
+    },
+    "commonLabels": {
+      "alertname": "MySasasdQLDown",
+      "instance": "192.168.12.4:9104",
+      "job": "mysql",
+      "monitor": "codelab-monitor",
+      "severity": "critical"
+    },
+    "commonAnnotations": {
+      "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+      "summary": "MySQL not up"
+    },
+    "externalURL": "http://aa518e8cae52:9093",
+    "version": "4",
+    "groupKey": "{}:{alertname=\"MySQLDown\"}",
+    "truncatedAlerts": 0
+  }
+2025/05/30 16:54:29 Result: 
+2025/05/30 16:58:55 Result: 
+2025/05/30 17:00:40 Result: 
+2025/05/30 17:01:56 Result: 
+2025/05/30 17:04:51 condition not match: alertname=MySQLDown
+2025/05/30 17:04:51 condition not match: alertname=mysql
+2025/05/30 17:04:51 Result: unmatched conditions 
+2025/05/30 17:05:32 Start reloading config...
+2025/05/30 17:05:32 Finish reloading config...
+2025/05/30 17:05:32 Config reloaded successfully
+2025/05/30 17:05:32 Config reloaded successfully and log configuration updated.
+2025/05/30 17:05:52 Received a new alarm
+2025/05/30 17:05:52 Contents of request body (first 2 KB): {
+    "receiver": "webhook",
+    "status": "firing",
+    "alerts": [
+      {
+        "status": "firing",
+        "labels": {
+          "alertname": "hahaha",
+          "instance": "192.168.12.4:9104",
+          "job": "mysql",
+          "monitor": "codelab-monitor",
+          "severity": "critical"
+        },
+        "annotations": {
+          "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+          "summary": "MySQL not up"
+        },
+        "startsAt": "2025-01-07T06:53:49.219Z",
+        "endsAt": "0001-01-01T00:00:00Z",
+        "generatorURL": "http://e51547470358:9090/graph?g0.expr=mysql_up+%21%3D+1\u0026g0.tab=1",
+        "fingerprint": "979f8a56c0fb6489"
+      }
+    ],
+    "groupLabels": {
+      "alertname": "asdasd"
+    },
+    "commonLabels": {
+      "alertname": "MySasasdQLDown",
+      "instance": "192.168.12.4:9104",
+      "job": "mysql",
+      "monitor": "codelab-monitor",
+      "severity": "critical"
+    },
+    "commonAnnotations": {
+      "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+      "summary": "MySQL not up"
+    },
+    "externalURL": "http://aa518e8cae52:9093",
+    "version": "4",
+    "groupKey": "{}:{alertname=\"MySQLDown\"}",
+    "truncatedAlerts": 0
+  }
+2025/05/30 17:05:52 condition not match: alertname=mysql
+2025/05/30 17:05:52 exec command: touch 668999
+2025/05/30 17:05:52 exec command fail: exec: "sh": executable file not found in %PATH%
+2025/05/30 17:05:52 command output: 
+2025/05/30 17:05:52 Action execution failed: exec: "sh": executable file not found in %PATH%
+2025/05/30 17:05:52 Failed to execute action: exec: "sh": executable file not found in %PATH%
+2025/05/30 17:08:42 Start reloading config...
+2025/05/30 17:08:42 Finish reloading config...
+2025/05/30 17:08:42 Config reloaded successfully
+2025/05/30 17:08:42 Config reloaded successfully and log configuration updated.
+2025/05/30 17:08:46 Received a new alarm
+2025/05/30 17:08:46 Contents of request body (first 2 KB): {
+    "receiver": "webhook",
+    "status": "firing",
+    "alerts": [
+      {
+        "status": "firing",
+        "labels": {
+          "alertname": "hahaha",
+          "instance": "192.168.12.4:9104",
+          "job": "mysql",
+          "monitor": "codelab-monitor",
+          "severity": "critical"
+        },
+        "annotations": {
+          "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+          "summary": "MySQL not up"
+        },
+        "startsAt": "2025-01-07T06:53:49.219Z",
+        "endsAt": "0001-01-01T00:00:00Z",
+        "generatorURL": "http://e51547470358:9090/graph?g0.expr=mysql_up+%21%3D+1\u0026g0.tab=1",
+        "fingerprint": "979f8a56c0fb6489"
+      }
+    ],
+    "groupLabels": {
+      "alertname": "asdasd"
+    },
+    "commonLabels": {
+      "alertname": "MySasasdQLDown",
+      "instance": "192.168.12.4:9104",
+      "job": "mysql",
+      "monitor": "codelab-monitor",
+      "severity": "critical"
+    },
+    "commonAnnotations": {
+      "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+      "summary": "MySQL not up"
+    },
+    "externalURL": "http://aa518e8cae52:9093",
+    "version": "4",
+    "groupKey": "{}:{alertname=\"MySQLDown\"}",
+    "truncatedAlerts": 0
+  }
+2025/05/30 17:08:46 exec command: touch 668999
+2025/05/30 17:08:46 exec command fail: exec: "sh": executable file not found in %PATH%
+2025/05/30 17:08:46 command output: 
+2025/05/30 17:08:46 Action execution failed: exec: "sh": executable file not found in %PATH%
+2025/05/30 17:08:46 Failed to execute action: exec: "sh": executable file not found in %PATH%
+2025/05/30 17:09:22 condition match: status=firing
+2025/05/30 17:09:22 condition match: description=MySQL mysql on 192.168.12.4:9104 is not up.
+2025/05/30 17:09:22 exec command: touch 668999
+2025/05/30 17:09:22 exec command fail: exec: "sh": executable file not found in %PATH%
+2025/05/30 17:09:22 command output: 
+2025/05/30 17:09:22 Action execution failed: exec: "sh": executable file not found in %PATH%
+2025/05/30 17:09:22 Failed to execute action: exec: "sh": executable file not found in %PATH%
+2025/05/30 17:09:55 Start reloading config...
+2025/05/30 17:09:55 Finish reloading config...
+2025/05/30 17:09:55 Config reloaded successfully
+2025/05/30 17:09:55 Config reloaded successfully and log configuration updated.
+2025/05/30 17:09:58 Received a new alarm
+2025/05/30 17:09:58 Contents of request body (first 2 KB): {
+    "receiver": "webhook",
+    "status": "firing",
+    "alerts": [
+      {
+        "status": "firing",
+        "labels": {
+          "alertname": "hahaha",
+          "instance": "192.168.12.4:9104",
+          "job": "mysql",
+          "monitor": "codelab-monitor",
+          "severity": "critical"
+        },
+        "annotations": {
+          "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+          "summary": "MySQL not up"
+        },
+        "startsAt": "2025-01-07T06:53:49.219Z",
+        "endsAt": "0001-01-01T00:00:00Z",
+        "generatorURL": "http://e51547470358:9090/graph?g0.expr=mysql_up+%21%3D+1\u0026g0.tab=1",
+        "fingerprint": "979f8a56c0fb6489"
+      }
+    ],
+    "groupLabels": {
+      "alertname": "asdasd"
+    },
+    "commonLabels": {
+      "alertname": "MySasasdQLDown",
+      "instance": "192.168.12.4:9104",
+      "job": "mysql",
+      "monitor": "codelab-monitor",
+      "severity": "critical"
+    },
+    "commonAnnotations": {
+      "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+      "summary": "MySQL not up"
+    },
+    "externalURL": "http://aa518e8cae52:9093",
+    "version": "4",
+    "groupKey": "{}:{alertname=\"MySQLDown\"}",
+    "truncatedAlerts": 0
+  }
+2025/05/30 17:09:58 condition match: job=mysql
+2025/05/30 17:09:58 exec command: touch 668999
+2025/05/30 17:09:58 exec command fail: exec: "sh": executable file not found in %PATH%
+2025/05/30 17:09:58 command output: 
+2025/05/30 17:09:58 Action execution failed: exec: "sh": executable file not found in %PATH%
+2025/05/30 17:09:58 Failed to execute action: exec: "sh": executable file not found in %PATH%
+2025/05/30 17:10:42 Received a new alarm
+2025/05/30 17:10:42 Contents of request body (first 2 KB): {
+    "receiver": "webhook",
+    "status": "firing",
+    "alerts": [
+      {
+        "status": "firing",
+        "labels": {
+          "alertname": "hahaha",
+          "instance": "192.168.12.4:9104",
+          "job": "mysql",
+          "monitor": "codelab-monitor",
+          "severity": "critical"
+        },
+        "annotations": {
+          "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+          "summary": "MySQL not up"
+        },
+        "startsAt": "2025-01-07T06:53:49.219Z",
+        "endsAt": "0001-01-01T00:00:00Z",
+        "generatorURL": "http://e51547470358:9090/graph?g0.expr=mysql_up+%21%3D+1\u0026g0.tab=1",
+        "fingerprint": "979f8a56c0fb6489"
+      }
+    ],
+    "groupLabels": {
+      "alertname": "asdasd"
+    },
+    "commonLabels": {
+      "alertname": "MySasasdQLDown",
+      "instance": "192.168.12.4:9104",
+      "job": "mysql",
+      "monitor": "codelab-monitor",
+      "severity": "critical"
+    },
+    "commonAnnotations": {
+      "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+      "summary": "MySQL not up"
+    },
+    "externalURL": "http://aa518e8cae52:9093",
+    "version": "4",
+    "groupKey": "{}:{alertname=\"MySQLDown\"}",
+    "truncatedAlerts": 0
+  }
+2025/05/30 17:10:42 condition match: job=mysql
+2025/05/30 17:10:42 exec command: touch 668999
+2025/05/30 17:10:42 exec command fail: exec: "sh": executable file not found in %PATH%
+2025/05/30 17:10:42 command output: 
+2025/05/30 17:10:42 Action execution failed: exec: "sh": executable file not found in %PATH%
+2025/05/30 17:10:42 Failed to execute action: exec: "sh": executable file not found in %PATH%
+2025/05/30 17:10:46 Start reloading config...
+2025/05/30 17:10:46 Finish reloading config...
+2025/05/30 17:10:46 Config reloaded successfully
+2025/05/30 17:10:46 Config reloaded successfully and log configuration updated.
+2025/05/30 17:10:49 Received a new alarm
+2025/05/30 17:10:49 Contents of request body (first 2 KB): {
+    "receiver": "webhook",
+    "status": "firing",
+    "alerts": [
+      {
+        "status": "firing",
+        "labels": {
+          "alertname": "hahaha",
+          "instance": "192.168.12.4:9104",
+          "job": "mysql",
+          "monitor": "codelab-monitor",
+          "severity": "critical"
+        },
+        "annotations": {
+          "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+          "summary": "MySQL not up"
+        },
+        "startsAt": "2025-01-07T06:53:49.219Z",
+        "endsAt": "0001-01-01T00:00:00Z",
+        "generatorURL": "http://e51547470358:9090/graph?g0.expr=mysql_up+%21%3D+1\u0026g0.tab=1",
+        "fingerprint": "979f8a56c0fb6489"
+      }
+    ],
+    "groupLabels": {
+      "alertname": "asdasd"
+    },
+    "commonLabels": {
+      "alertname": "MySasasdQLDown",
+      "instance": "192.168.12.4:9104",
+      "job": "mysql",
+      "monitor": "codelab-monitor",
+      "severity": "critical"
+    },
+    "commonAnnotations": {
+      "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+      "summary": "MySQL not up"
+    },
+    "externalURL": "http://aa518e8cae52:9093",
+    "version": "4",
+    "groupKey": "{}:{alertname=\"MySQLDown\"}",
+    "truncatedAlerts": 0
+  }
+2025/05/30 17:10:49 condition not match: job=firing
+2025/05/30 17:10:49 Result: unmatched conditions 
+2025/05/30 17:11:25 Received a new alarm
+2025/05/30 17:11:25 Contents of request body (first 2 KB): {
+    "receiver": "webhook",
+    "status": "firing",
+    "alerts": [
+      {
+        "status": "firing",
+        "labels": {
+          "alertname": "hahaha",
+          "instance": "192.168.12.4:9104",
+          "job": "mysql",
+          "monitor": "codelab-monitor",
+          "severity": "critical"
+        },
+        "annotations": {
+          "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+          "summary": "MySQL not up"
+        },
+        "startsAt": "2025-01-07T06:53:49.219Z",
+        "endsAt": "0001-01-01T00:00:00Z",
+        "generatorURL": "http://e51547470358:9090/graph?g0.expr=mysql_up+%21%3D+1\u0026g0.tab=1",
+        "fingerprint": "979f8a56c0fb6489"
+      }
+    ],
+    "groupLabels": {
+      "alertname": "asdasd"
+    },
+    "commonLabels": {
+      "alertname": "MySasasdQLDown",
+      "instance": "192.168.12.4:9104",
+      "job": "mysql",
+      "monitor": "codelab-monitor",
+      "severity": "critical"
+    },
+    "commonAnnotations": {
+      "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+      "summary": "MySQL not up"
+    },
+    "externalURL": "http://aa518e8cae52:9093",
+    "version": "4",
+    "groupKey": "{}:{alertname=\"MySQLDown\"}",
+    "truncatedAlerts": 0
+  }
+2025/05/30 17:11:25 condition not match: job=firing
+2025/05/30 17:11:25 Result: unmatched conditions 
+2025/05/30 17:11:30 Start reloading config...
+2025/05/30 17:11:30 Finish reloading config...
+2025/05/30 17:11:30 Config reloaded successfully
+2025/05/30 17:11:30 Config reloaded successfully and log configuration updated.
+2025/05/30 17:11:32 Received a new alarm
+2025/05/30 17:11:32 Contents of request body (first 2 KB): {
+    "receiver": "webhook",
+    "status": "firing",
+    "alerts": [
+      {
+        "status": "firing",
+        "labels": {
+          "alertname": "hahaha",
+          "instance": "192.168.12.4:9104",
+          "job": "mysql",
+          "monitor": "codelab-monitor",
+          "severity": "critical"
+        },
+        "annotations": {
+          "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+          "summary": "MySQL not up"
+        },
+        "startsAt": "2025-01-07T06:53:49.219Z",
+        "endsAt": "0001-01-01T00:00:00Z",
+        "generatorURL": "http://e51547470358:9090/graph?g0.expr=mysql_up+%21%3D+1\u0026g0.tab=1",
+        "fingerprint": "979f8a56c0fb6489"
+      }
+    ],
+    "groupLabels": {
+      "alertname": "asdasd"
+    },
+    "commonLabels": {
+      "alertname": "MySasasdQLDown",
+      "instance": "192.168.12.4:9104",
+      "job": "mysql",
+      "monitor": "codelab-monitor",
+      "severity": "critical"
+    },
+    "commonAnnotations": {
+      "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+      "summary": "MySQL not up"
+    },
+    "externalURL": "http://aa518e8cae52:9093",
+    "version": "4",
+    "groupKey": "{}:{alertname=\"MySQLDown\"}",
+    "truncatedAlerts": 0
+  }
+2025/05/30 17:11:32 condition match: status=firing
+2025/05/30 17:11:32 condition not match: job=up
+2025/05/30 17:11:32 Result: unmatched conditions 
+2025/05/30 17:38:00 exec command: touch 668999
+2025/05/30 17:38:00 exec command fail: exec: "sh": executable file not found in %PATH%
+2025/05/30 17:38:00 command output: 
+2025/05/30 17:38:00 Action execution failed: exec: "sh": executable file not found in %PATH%
+2025/05/30 17:38:00 Failed to execute action: exec: "sh": executable file not found in %PATH%
+2025/05/30 17:38:23 Received a new alarm
+2025/05/30 17:38:23 Contents of request body (first 2 KB): {
+    "receiver": "webhook",
+    "status": "firing",
+    "alerts": [
+      {
+        "status": "firing",
+        "labels": {
+          "alertname": "hahaha",
+          "instance": "192.168.12.4:9104",
+          "job": "mysql",
+          "monitor": "codelab-monitor",
+          "severity": "critical"
+        },
+        "annotations": {
+          "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+          "summary": "MySQL not up"
+        },
+        "startsAt": "2025-01-07T06:53:49.219Z",
+        "endsAt": "0001-01-01T00:00:00Z",
+        "generatorURL": "http://e51547470358:9090/graph?g0.expr=mysql_up+%21%3D+1\u0026g0.tab=1",
+        "fingerprint": "979f8a56c0fb6489"
+      }
+    ],
+    "groupLabels": {
+      "alertname": "asdasd"
+    },
+    "commonLabels": {
+      "alertname": "MySasasdQLDown",
+      "instance": "192.168.12.4:9104",
+      "job": "mysql",
+      "monitor": "codelab-monitor",
+      "severity": "critical"
+    },
+    "commonAnnotations": {
+      "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+      "summary": "MySQL not up"
+    },
+    "externalURL": "http://aa518e8cae52:9093",
+    "version": "4",
+    "groupKey": "{}:{alertname=\"MySQLDown\"}",
+    "truncatedAlerts": 0
+  }
+2025/05/30 17:38:23 exec command: touch 668999
+2025/05/30 17:38:23 exec command fail: exec: "sh": executable file not found in %PATH%
+2025/05/30 17:38:23 command output: 
+2025/05/30 17:38:23 Action execution failed: exec: "sh": executable file not found in %PATH%
+2025/05/30 17:38:23 Failed to execute action: exec: "sh": executable file not found in %PATH%
+2025/05/30 17:38:40 Start reloading config...
+2025/05/30 17:38:40 Finish reloading config...
+2025/05/30 17:38:40 Config reloaded successfully
+2025/05/30 17:38:40 Config reloaded successfully and log configuration updated.
+2025/05/30 17:38:42 Received a new alarm
+2025/05/30 17:38:42 Contents of request body (first 2 KB): {
+    "receiver": "webhook",
+    "status": "firing",
+    "alerts": [
+      {
+        "status": "firing",
+        "labels": {
+          "alertname": "hahaha",
+          "instance": "192.168.12.4:9104",
+          "job": "mysql",
+          "monitor": "codelab-monitor",
+          "severity": "critical"
+        },
+        "annotations": {
+          "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+          "summary": "MySQL not up"
+        },
+        "startsAt": "2025-01-07T06:53:49.219Z",
+        "endsAt": "0001-01-01T00:00:00Z",
+        "generatorURL": "http://e51547470358:9090/graph?g0.expr=mysql_up+%21%3D+1\u0026g0.tab=1",
+        "fingerprint": "979f8a56c0fb6489"
+      }
+    ],
+    "groupLabels": {
+      "alertname": "asdasd"
+    },
+    "commonLabels": {
+      "alertname": "MySasasdQLDown",
+      "instance": "192.168.12.4:9104",
+      "job": "mysql",
+      "monitor": "codelab-monitor",
+      "severity": "critical"
+    },
+    "commonAnnotations": {
+      "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+      "summary": "MySQL not up"
+    },
+    "externalURL": "http://aa518e8cae52:9093",
+    "version": "4",
+    "groupKey": "{}:{alertname=\"MySQLDown\"}",
+    "truncatedAlerts": 0
+  }
+2025/05/30 17:38:42 condition match: status=firing
+2025/05/30 17:38:42 exec command: touch 668999
+2025/05/30 17:38:42 exec command fail: exec: "sh": executable file not found in %PATH%
+2025/05/30 17:38:42 command output: 
+2025/05/30 17:38:42 Action execution failed: exec: "sh": executable file not found in %PATH%
+2025/05/30 17:38:42 Failed to execute action: exec: "sh": executable file not found in %PATH%
+2025/05/30 17:38:51 Start reloading config...
+2025/05/30 17:38:51 Finish reloading config...
+2025/05/30 17:38:51 Config reloaded successfully
+2025/05/30 17:38:51 Config reloaded successfully and log configuration updated.
+2025/05/30 17:38:52 Received a new alarm
+2025/05/30 17:38:52 Contents of request body (first 2 KB): {
+    "receiver": "webhook",
+    "status": "firing",
+    "alerts": [
+      {
+        "status": "firing",
+        "labels": {
+          "alertname": "hahaha",
+          "instance": "192.168.12.4:9104",
+          "job": "mysql",
+          "monitor": "codelab-monitor",
+          "severity": "critical"
+        },
+        "annotations": {
+          "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+          "summary": "MySQL not up"
+        },
+        "startsAt": "2025-01-07T06:53:49.219Z",
+        "endsAt": "0001-01-01T00:00:00Z",
+        "generatorURL": "http://e51547470358:9090/graph?g0.expr=mysql_up+%21%3D+1\u0026g0.tab=1",
+        "fingerprint": "979f8a56c0fb6489"
+      }
+    ],
+    "groupLabels": {
+      "alertname": "asdasd"
+    },
+    "commonLabels": {
+      "alertname": "MySasasdQLDown",
+      "instance": "192.168.12.4:9104",
+      "job": "mysql",
+      "monitor": "codelab-monitor",
+      "severity": "critical"
+    },
+    "commonAnnotations": {
+      "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+      "summary": "MySQL not up"
+    },
+    "externalURL": "http://aa518e8cae52:9093",
+    "version": "4",
+    "groupKey": "{}:{alertname=\"MySQLDown\"}",
+    "truncatedAlerts": 0
+  }
+2025/05/30 17:38:52 condition not match: status=firing123
+2025/05/30 17:38:52 Result: unmatched conditions 
+2025/05/30 17:47:49 condition not match: status=firing123
+2025/05/30 17:47:49 Result: unmatched conditions 
+2025/05/30 17:48:08 condition not match: status=firing123
+2025/05/30 17:48:08 Result: unmatched conditions 
+2025/05/30 17:48:23 condition not match: status=firing123
+2025/05/30 17:48:23 Result: unmatched conditions 
+2025/05/30 17:53:16 condition not match: status=firing123
+2025/05/30 17:53:16 Result: unmatched conditions 
+2025/05/30 17:53:55 Finish reloading config...
+2025/05/30 17:53:55 Config reloaded successfully
+2025/05/30 17:53:55 Config reloaded successfully and log configuration updated.
+2025/05/30 17:53:56 Received a new alarm
+2025/05/30 17:53:56 Contents of request body (first 2 KB): {
+    "receiver": "webhook",
+    "status": "firing",
+    "alerts": [
+      {
+        "status": "firing",
+        "labels": {
+          "alertname": "hahaha",
+          "instance": "192.168.12.4:9104",
+          "job": "mysql",
+          "monitor": "codelab-monitor",
+          "severity": "critical"
+        },
+        "annotations": {
+          "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+          "summary": "MySQL not up"
+        },
+        "startsAt": "2025-01-07T06:53:49.219Z",
+        "endsAt": "0001-01-01T00:00:00Z",
+        "generatorURL": "http://e51547470358:9090/graph?g0.expr=mysql_up+%21%3D+1\u0026g0.tab=1",
+        "fingerprint": "979f8a56c0fb6489"
+      }
+    ],
+    "groupLabels": {
+      "alertname": "asdasd"
+    },
+    "commonLabels": {
+      "alertname": "MySasasdQLDown",
+      "instance": "192.168.12.4:9104",
+      "job": "mysql",
+      "monitor": "codelab-monitor",
+      "severity": "critical"
+    },
+    "commonAnnotations": {
+      "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+      "summary": "MySQL not up"
+    },
+    "externalURL": "http://aa518e8cae52:9093",
+    "version": "4",
+    "groupKey": "{}:{alertname=\"MySQLDown\"}",
+    "truncatedAlerts": 0
+  }
+2025/05/30 17:53:56 condition not match: status=firing123
+2025/05/30 17:53:56 Result: unmatched conditions 
+2025/05/30 17:54:37 condition not match: status=firing123
+2025/05/30 17:54:37 Result: unmatched conditions 
+2025/06/03 09:41:02 condition not match: status=firing123
+2025/06/03 09:41:02 Result: unmatched conditions 
+2025/06/03 09:42:00 condition not match: status=firing123
+2025/06/03 09:42:00 Result: unmatched conditions 
+2025/06/03 09:43:33 condition not match: status=firing123
+2025/06/03 09:43:34 Feishu webhook response: 200 OK
+2025/06/03 09:43:34 Result: unmatched conditions 
+2025/06/03 09:47:23 condition not match: status=firing123
+2025/06/03 09:47:23 Feishu webhook response: 200 OK
+2025/06/03 09:47:23 Result: unmatched conditions 
+2025/06/03 15:33:21 condition not match: status=firing123
+2025/06/03 15:33:21 Failed to read template file message.tmpl: open message.tmpl: The system cannot find the file specified.
+2025/06/03 15:33:21 Result: unmatched conditions 
+2025/06/03 15:34:00 Contents of request body (first 2 KB): {
+    "receiver": "webhook",
+    "status": "firing",
+    "alerts": [
+      {
+        "status": "firing",
+        "labels": {
+          "alertname": "hahaha",
+          "instance": "192.168.12.4:9104",
+          "job": "mysql",
+          "monitor": "codelab-monitor",
+          "severity": "critical"
+        },
+        "annotations": {
+          "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+          "summary": "test"
+        },
+        "startsAt": "2025-01-07T06:53:49.219Z",
+        "endsAt": "0001-01-01T00:00:00Z",
+        "generatorURL": "http://e51547470358:9090/graph?g0.expr=mysql_up+%21%3D+1\u0026g0.tab=1",
+        "fingerprint": "979f8a56c0fb6489"
+      }
+    ],
+    "groupLabels": {
+      "alertname": "asdasd"
+    },
+    "commonLabels": {
+      "alertname": "MySasasdQLDown",
+      "instance": "192.168.12.4:9104",
+      "job": "mysql",
+      "monitor": "codelab-monitor",
+      "severity": "critical"
+    },
+    "commonAnnotations": {
+      "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+      "summary": "MySQL not up"
+    },
+    "externalURL": "http://aa518e8cae52:9093",
+    "version": "4",
+    "groupKey": "{}:{alertname=\"MySQLDown\"}",
+    "truncatedAlerts": 0
+  }
+2025/06/03 15:34:00 condition not match: status=firing123
+2025/06/03 15:34:00 Failed to read template file message.tmpl: open message.tmpl: The system cannot find the file specified.
+2025/06/03 15:34:00 Result: unmatched conditions 
+2025/06/03 15:34:44 Finish reloading config...
+2025/06/03 15:34:44 Config reloaded successfully
+2025/06/03 15:34:44 Config reloaded successfully and log configuration updated.
+2025/06/03 15:34:54 Contents of request body (first 2 KB): {
+    "receiver": "webhook",
+    "status": "firing",
+    "alerts": [
+      {
+        "status": "firing",
+        "labels": {
+          "alertname": "hahaha",
+          "instance": "192.168.12.4:9104",
+          "job": "mysql",
+          "monitor": "codelab-monitor",
+          "severity": "critical"
+        },
+        "annotations": {
+          "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+          "summary": "test"
+        },
+        "startsAt": "2025-01-07T06:53:49.219Z",
+        "endsAt": "0001-01-01T00:00:00Z",
+        "generatorURL": "http://e51547470358:9090/graph?g0.expr=mysql_up+%21%3D+1\u0026g0.tab=1",
+        "fingerprint": "979f8a56c0fb6489"
+      }
+    ],
+    "groupLabels": {
+      "alertname": "asdasd"
+    },
+    "commonLabels": {
+      "alertname": "MySasasdQLDown",
+      "instance": "192.168.12.4:9104",
+      "job": "mysql",
+      "monitor": "codelab-monitor",
+      "severity": "critical"
+    },
+    "commonAnnotations": {
+      "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+      "summary": "MySQL not up"
+    },
+    "externalURL": "http://aa518e8cae52:9093",
+    "version": "4",
+    "groupKey": "{}:{alertname=\"MySQLDown\"}",
+    "truncatedAlerts": 0
+  }
+2025/06/03 15:34:54 condition not match: status=firing123
+2025/06/03 15:34:54 Failed to read template file ./templates/feishu.tmpl: open ./templates/feishu.tmpl: The system cannot find the path specified.
+2025/06/03 15:34:54 Result: unmatched conditions 
+2025/06/03 15:34:59 Contents of request body (first 2 KB): {
+    "receiver": "webhook",
+    "status": "firing",
+    "alerts": [
+      {
+        "status": "firing",
+        "labels": {
+          "alertname": "hahaha",
+          "instance": "192.168.12.4:9104",
+          "job": "mysql",
+          "monitor": "codelab-monitor",
+          "severity": "critical"
+        },
+        "annotations": {
+          "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+          "summary": "test"
+        },
+        "startsAt": "2025-01-07T06:53:49.219Z",
+        "endsAt": "0001-01-01T00:00:00Z",
+        "generatorURL": "http://e51547470358:9090/graph?g0.expr=mysql_up+%21%3D+1\u0026g0.tab=1",
+        "fingerprint": "979f8a56c0fb6489"
+      }
+    ],
+    "groupLabels": {
+      "alertname": "asdasd"
+    },
+    "commonLabels": {
+      "alertname": "MySasasdQLDown",
+      "instance": "192.168.12.4:9104",
+      "job": "mysql",
+      "monitor": "codelab-monitor",
+      "severity": "critical"
+    },
+    "commonAnnotations": {
+      "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+      "summary": "MySQL not up"
+    },
+    "externalURL": "http://aa518e8cae52:9093",
+    "version": "4",
+    "groupKey": "{}:{alertname=\"MySQLDown\"}",
+    "truncatedAlerts": 0
+  }
+2025/06/03 15:34:59 condition not match: status=firing123
+2025/06/03 15:34:59 Failed to read template file ./templates/feishu.tmpl: open ./templates/feishu.tmpl: The system cannot find the path specified.
+2025/06/03 15:34:59 Result: unmatched conditions 
+2025/06/03 15:35:24 Start reloading config...
+2025/06/03 15:35:24 Finish reloading config...
+2025/06/03 15:35:24 Config reloaded successfully
+2025/06/03 15:35:24 Config reloaded successfully and log configuration updated.
+2025/06/03 15:35:25 Contents of request body (first 2 KB): {
+    "receiver": "webhook",
+    "status": "firing",
+    "alerts": [
+      {
+        "status": "firing",
+        "labels": {
+          "alertname": "hahaha",
+          "instance": "192.168.12.4:9104",
+          "job": "mysql",
+          "monitor": "codelab-monitor",
+          "severity": "critical"
+        },
+        "annotations": {
+          "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+          "summary": "test"
+        },
+        "startsAt": "2025-01-07T06:53:49.219Z",
+        "endsAt": "0001-01-01T00:00:00Z",
+        "generatorURL": "http://e51547470358:9090/graph?g0.expr=mysql_up+%21%3D+1\u0026g0.tab=1",
+        "fingerprint": "979f8a56c0fb6489"
+      }
+    ],
+    "groupLabels": {
+      "alertname": "asdasd"
+    },
+    "commonLabels": {
+      "alertname": "MySasasdQLDown",
+      "instance": "192.168.12.4:9104",
+      "job": "mysql",
+      "monitor": "codelab-monitor",
+      "severity": "critical"
+    },
+    "commonAnnotations": {
+      "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+      "summary": "MySQL not up"
+    },
+    "externalURL": "http://aa518e8cae52:9093",
+    "version": "4",
+    "groupKey": "{}:{alertname=\"MySQLDown\"}",
+    "truncatedAlerts": 0
+  }
+2025/06/03 15:35:25 condition not match: status=firing123
+2025/06/03 15:35:25 Failed to read template file templates\feishu.tmpl: open templates\feishu.tmpl: The system cannot find the path specified.
+2025/06/03 15:35:25 Result: unmatched conditions 
+2025/06/03 15:36:28 Start reloading config...
+2025/06/03 15:36:28 Finish reloading config...
+2025/06/03 15:36:28 Config reloaded successfully
+2025/06/03 15:36:28 Config reloaded successfully and log configuration updated.
+2025/06/03 15:36:30 Contents of request body (first 2 KB): {
+    "receiver": "webhook",
+    "status": "firing",
+    "alerts": [
+      {
+        "status": "firing",
+        "labels": {
+          "alertname": "hahaha",
+          "instance": "192.168.12.4:9104",
+          "job": "mysql",
+          "monitor": "codelab-monitor",
+          "severity": "critical"
+        },
+        "annotations": {
+          "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+          "summary": "test"
+        },
+        "startsAt": "2025-01-07T06:53:49.219Z",
+        "endsAt": "0001-01-01T00:00:00Z",
+        "generatorURL": "http://e51547470358:9090/graph?g0.expr=mysql_up+%21%3D+1\u0026g0.tab=1",
+        "fingerprint": "979f8a56c0fb6489"
+      }
+    ],
+    "groupLabels": {
+      "alertname": "asdasd"
+    },
+    "commonLabels": {
+      "alertname": "MySasasdQLDown",
+      "instance": "192.168.12.4:9104",
+      "job": "mysql",
+      "monitor": "codelab-monitor",
+      "severity": "critical"
+    },
+    "commonAnnotations": {
+      "description": "MySQL mysql on 192.168.12.4:9104 is not up.",
+      "summary": "MySQL not up"
+    },
+    "externalURL": "http://aa518e8cae52:9093",
+    "version": "4",
+    "groupKey": "{}:{alertname=\"MySQLDown\"}",
+    "truncatedAlerts": 0
+  }
+2025/06/03 15:36:30 condition not match: status=firing123
+2025/06/03 15:36:30 Feishu webhook response: 200 OK
+2025/06/03 15:36:30 Result: unmatched conditions 
+2025/06/04 13:45:03 condition not match: status=firing123
+2025/06/04 13:45:04 Feishu webhook response: 200 OK
+2025/06/04 13:45:04 Result: unmatched conditions 
+2025/06/04 13:53:29 condition not match: status=firing123
+2025/06/04 13:53:29 Feishu webhook or template path not configured
+2025/06/04 13:53:29 Result: unmatched conditions 
+2025/06/04 13:56:16 condition not match: status=firing123
+2025/06/04 13:56:16 Feishu webhook or template path not configured
+2025/06/04 13:56:16 Result: unmatched conditions 
+2025/06/04 13:56:22 Request body: {
+    "receiver":"Critical",
+    "status":"firing",
+    "alerts":[
+      {
+        "status":"firing",
+        "labels":{
+          "alertname":"Watchdog",
+          "prometheus":"monitoring/kube-prometheus-stack-prometheus",
+          "severity":"noneInfoInhibitor"
+        },
+        "annotations":{
+          "description":"This is an alert meant to ensure that the entire alerting pipeline is functional.\nThis alert is always firing, therefore it should always be firing in Alertmanager\nand always fire against a receiver. There are integrations with various notification\nmechanisms that send a notification when this alert is not firing. For example the\n\"DeadMansSnitch\" integration in PagerDuty.\n",
+          "runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/general/watchdog",
+          "summary":"An alert that should always be firing to certify that Alertmanager is working properly."
+        },
+        "startsAt":"2025-06-03T15:08:07.352Z",
+        "endsAt":"0001-01-01T00:00:00Z",
+        "generatorURL":"https://prometheus.autom.studio/graph?g0.expr=vector(1)&g0.tab=1",
+        "fingerprint":"e7ee8f2dc34c63af"
+      }
+    ],
+    "groupLabels":{
+      "alertname":"Watchdog"
+    },
+    "commonLabels":{
+      "alertname":"Watchdog",
+      "prometheus":"monitoring/kube-prometheus-stack-prometheus",
+      "severity":"noneInfoInhibitor"
+    },
+    "commonAnnotations":{
+      "description":"This is an alert meant to ensure that the entire alerting pipeline is functional.\nThis alert is always firing, therefore it should always be firing in Alertmanager\nand always fire against a receiver. There are integrations with various notification\nmechanisms that send a notification when this alert is not firing. For example the\n\"DeadMansSnitch\" integration in PagerDuty.\n",
+      "runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/general/watchdog",
+      "summary":"An alert that should always be firing to certify that Alertmanager is working properly."
+    },
+    "externalURL":"https://alertmanager.autom.studio",
+    "version":"4",
+    "groupKey":"{}/{alertname=~\"InfoInhibitor|Watchdog|etcdMemberCommunicationSlow\"}:{alertname=\"Watchdog\"}",
+    "truncatedAlerts":0
+  }
+2025/06/04 13:56:22 condition not match: status=firing123
+2025/06/04 13:56:22 Feishu webhook or template path not configured
+2025/06/04 13:56:22 Result: unmatched conditions 
+2025/06/05 10:17:03 condition not match: status=firing123
+2025/06/05 10:17:03 Feishu webhook or template path not configured
+2025/06/05 10:17:03 Result: unmatched conditions 
+2025/06/05 15:21:45 condition not match: status=firing123
+2025/06/05 15:21:45 Feishu webhook or template path not configured
+2025/06/05 15:21:45 Result: unmatched conditions 
+2025/06/05 15:24:17 Request body: {
+    "receiver":"Critical",
+    "status":"firing",
+    "alerts":[
+      {
+        "status":"firing",
+        "labels":{
+          "alertname":"NodeFilesystemSpaceLow5",
+          "container":"node-exporter",
+          "device":"/dev/vda1",
+          "endpoint":"http-metrics",
+          "fstype":"ext4",
+          "instance":"10.4.145.113:9100",
+          "job":"node-exporter",
+          "mountpoint":"/",
+          "namespace":"monitoring",
+          "pod":"kube-prometheus-stack-prometheus-node-exporter-lnkfq",
+          "prometheus":"monitoring/kube-prometheus-stack-prometheus",
+          "service":"kube-prometheus-stack-prometheus-node-exporter",
+          "severity":"warning"
+        },
+        "annotations":{
+          "description":"The disk mounted at / on 10.4.145.113:9100 has less than 10% free space remaining. Please monitor disk usage closely.\n",
+          "runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/node/filesystemspacelow5",
+          "summary":"Disk space below 5% on 10.4.145.113:9100"
+        },
+        "startsAt":"2025-06-05T07:17:09.726Z",
+        "endsAt":"0001-01-01T00:00:00Z",
+        "generatorURL":"https://prometheus.autom.studio/graph?g0.expr=%28node_filesystem_avail_bytes%7Bfstype%3D~%22ext4%7Cxfs%22%2Cmountpoint%21~%22%2Frun%7C%2Fvar%2Flib%2Fdocker%2F.%2B%7C%2Fvar%2Flib%2Fkubelet%2Fpods%2F.%2B%22%7D+%2F+node_filesystem_size_bytes%7Bfstype%3D~%22ext4%7Cxfs%22%7D%29+%3C+0.5&g0.tab=1",
+        "fingerprint":"41fca1d284d61039"
+      }
+    ],
+    "groupLabels":{
+      "alertname":"NodeFilesystemSpaceLow5",
+      "job":"node-exporter",
+      "namespace":"monitoring"
+    },
+    "commonLabels":{
+      "alertname":"NodeFilesystemSpaceLow5",
+      "container":"node-exporter",
+      "device":"/dev/vda1",
+      "endpoint":"http-metrics",
+      "fstype":"ext4",
+      "job":"node-exporter",
+      "mountpoint":"/",
+      "namespace":"monitoring",
+      "prometheus":"monitoring/kube-prometheus-stack-prometheus",
+      "service":"kube-prometheus-stack-prometheus-node-exporter",
+      "severity":"warning"
+    },
+    "commonAnnotations":{
+      "runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/node/filesystemspacelow5"
+    },
+    "externalURL":"https://alertmanager.autom.studio",
+    "version":"4",
+    "groupKey":"{}:{alertname=\"NodeFilesystemSpaceLow5\", job=\"node-exporter\", namespace=\"monitoring\"}",
+    "truncatedAlerts":0
+  }
+2025/06/05 15:24:17 condition not match: status=firing123
+2025/06/05 15:24:17 Feishu webhook or template path not configured
+2025/06/05 15:24:17 Result: unmatched conditions 
+2025/06/05 15:26:19 condition not match: status=firing123
+2025/06/05 15:26:19 Failed to unmarshal rendered JSON: invalid character '\n' in string literal
+2025/06/05 15:26:19 Result: unmatched conditions 
+2025/06/05 15:27:01 condition not match: status=firing123
+2025/06/05 15:27:01 Failed to unmarshal rendered JSON: invalid character '\n' in string literal
+2025/06/05 15:27:01 Result: unmatched conditions 
+2025/06/05 15:34:45 condition not match: status=firing123
+2025/06/05 15:34:57 Feishu webhook response: 200 OK
+2025/06/05 15:34:57 Result: unmatched conditions 
+2025/06/05 15:40:34 condition not match: status=firing123
+2025/06/05 15:40:34 Feishu webhook response: 200 OK
+2025/06/05 15:40:34 Result: unmatched conditions 
+2025/06/05 15:49:35 condition not match: status=firing123
+2025/06/05 15:49:35 Feishu webhook response: 200 OK
+2025/06/05 15:49:35 Result: unmatched conditions 
+2025/06/05 15:50:01 Start reloading config...
+2025/06/05 15:50:01 Finish reloading config...
+2025/06/05 15:50:01 Config reloaded successfully
+2025/06/05 15:50:01 Config reloaded successfully and log configuration updated.
+2025/06/05 15:50:05 Request body: {
+    "receiver":"Critical",
+    "status":"firing",
+    "alerts":[
+      {
+        "status":"firing",
+        "labels":{
+          "alertname":"NodeFilesystemSpaceLow5",
+          "container":"node-exporter",
+          "device":"/dev/vda1",
+          "endpoint":"http-metrics",
+          "fstype":"ext4",
+          "instance":"10.4.145.113:9100",
+          "job":"node-exporter",
+          "mountpoint":"/",
+          "namespace":"monitoring",
+          "pod":"kube-prometheus-stack-prometheus-node-exporter-lnkfq",
+          "prometheus":"monitoring/kube-prometheus-stack-prometheus",
+          "service":"kube-prometheus-stack-prometheus-node-exporter",
+          "severity":"warning"
+        },
+        "annotations":{
+          "description":"The disk mounted at / on 10.4.145.113:9100 has less than 10% free space remaining. Please monitor disk usage closely.\n",
+          "runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/node/filesystemspacelow5",
+          "summary":"Disk space below 5% on 10.4.145.113:9100"
+        },
+        "startsAt":"2025-06-05T07:17:09.726Z",
+        "endsAt":"0001-01-01T00:00:00Z",
+        "generatorURL":"https://prometheus.autom.studio/graph?g0.expr=%28node_filesystem_avail_bytes%7Bfstype%3D~%22ext4%7Cxfs%22%2Cmountpoint%21~%22%2Frun%7C%2Fvar%2Flib%2Fdocker%2F.%2B%7C%2Fvar%2Flib%2Fkubelet%2Fpods%2F.%2B%22%7D+%2F+node_filesystem_size_bytes%7Bfstype%3D~%22ext4%7Cxfs%22%7D%29+%3C+0.5&g0.tab=1",
+        "fingerprint":"41fca1d284d61039"
+      }
+    ],
+    "groupLabels":{
+      "alertname":"NodeFilesystemSpaceLow5",
+      "job":"node-exporter",
+      "namespace":"monitoring"
+    },
+    "commonLabels":{
+      "alertname":"NodeFilesystemSpaceLow5",
+      "container":"node-exporter",
+      "device":"/dev/vda1",
+      "endpoint":"http-metrics",
+      "fstype":"ext4",
+      "job":"node-exporter",
+      "mountpoint":"/",
+      "namespace":"monitoring",
+      "prometheus":"monitoring/kube-prometheus-stack-prometheus",
+      "service":"kube-prometheus-stack-prometheus-node-exporter",
+      "severity":"warning"
+    },
+    "commonAnnotations":{
+      "runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/node/filesystemspacelow5"
+    },
+    "externalURL":"https://alertmanager.autom.studio",
+    "version":"4",
+    "groupKey":"{}:{alertname=\"NodeFilesystemSpaceLow5\", job=\"node-exporter\", namespace=\"monitoring\"}",
+    "truncatedAlerts":0
+  }
+2025/06/05 15:50:05 condition not match: status=firing123
+2025/06/05 15:50:05 Feishu webhook or template path not configured
+2025/06/05 15:50:05 Result: unmatched conditions 
+2025/06/05 15:50:27 Start reloading config...
+2025/06/05 15:50:27 Finish reloading config...
+2025/06/05 15:50:27 Config reloaded successfully
+2025/06/05 15:50:27 Config reloaded successfully and log configuration updated.
+2025/06/05 15:50:28 Request body: {
+    "receiver":"Critical",
+    "status":"firing",
+    "alerts":[
+      {
+        "status":"firing",
+        "labels":{
+          "alertname":"NodeFilesystemSpaceLow5",
+          "container":"node-exporter",
+          "device":"/dev/vda1",
+          "endpoint":"http-metrics",
+          "fstype":"ext4",
+          "instance":"10.4.145.113:9100",
+          "job":"node-exporter",
+          "mountpoint":"/",
+          "namespace":"monitoring",
+          "pod":"kube-prometheus-stack-prometheus-node-exporter-lnkfq",
+          "prometheus":"monitoring/kube-prometheus-stack-prometheus",
+          "service":"kube-prometheus-stack-prometheus-node-exporter",
+          "severity":"warning"
+        },
+        "annotations":{
+          "description":"The disk mounted at / on 10.4.145.113:9100 has less than 10% free space remaining. Please monitor disk usage closely.\n",
+          "runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/node/filesystemspacelow5",
+          "summary":"Disk space below 5% on 10.4.145.113:9100"
+        },
+        "startsAt":"2025-06-05T07:17:09.726Z",
+        "endsAt":"0001-01-01T00:00:00Z",
+        "generatorURL":"https://prometheus.autom.studio/graph?g0.expr=%28node_filesystem_avail_bytes%7Bfstype%3D~%22ext4%7Cxfs%22%2Cmountpoint%21~%22%2Frun%7C%2Fvar%2Flib%2Fdocker%2F.%2B%7C%2Fvar%2Flib%2Fkubelet%2Fpods%2F.%2B%22%7D+%2F+node_filesystem_size_bytes%7Bfstype%3D~%22ext4%7Cxfs%22%7D%29+%3C+0.5&g0.tab=1",
+        "fingerprint":"41fca1d284d61039"
+      }
+    ],
+    "groupLabels":{
+      "alertname":"NodeFilesystemSpaceLow5",
+      "job":"node-exporter",
+      "namespace":"monitoring"
+    },
+    "commonLabels":{
+      "alertname":"NodeFilesystemSpaceLow5",
+      "container":"node-exporter",
+      "device":"/dev/vda1",
+      "endpoint":"http-metrics",
+      "fstype":"ext4",
+      "job":"node-exporter",
+      "mountpoint":"/",
+      "namespace":"monitoring",
+      "prometheus":"monitoring/kube-prometheus-stack-prometheus",
+      "service":"kube-prometheus-stack-prometheus-node-exporter",
+      "severity":"warning"
+    },
+    "commonAnnotations":{
+      "runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/node/filesystemspacelow5"
+    },
+    "externalURL":"https://alertmanager.autom.studio",
+    "version":"4",
+    "groupKey":"{}:{alertname=\"NodeFilesystemSpaceLow5\", job=\"node-exporter\", namespace=\"monitoring\"}",
+    "truncatedAlerts":0
+  }
+2025/06/05 15:50:28 condition not match: status=firing123
+2025/06/05 15:50:29 Feishu webhook response: 200 OK
+2025/06/05 15:50:29 Result: unmatched conditions 
+2025/06/06 10:56:12 condition not match: status=firing123
+2025/06/06 10:56:13 Feishu webhook response: 200 OK
+2025/06/06 10:56:13 Result: unmatched conditions 
+2025/06/06 10:58:00 condition not match: status=firing123
+2025/06/06 10:58:00 Failed to unmarshal template output: invalid character '\n' in string literal
+2025/06/06 10:58:00 Result: unmatched conditions 
+2025/06/06 10:58:56 condition not match: status=firing123
+2025/06/06 10:58:56 Failed to unmarshal template output: invalid character 'D' after object key:value pair
+2025/06/06 10:58:56 Result: unmatched conditions 
+2025/06/06 10:59:10 condition not match: status=firing123
+2025/06/06 10:59:18 Feishu webhook response: 200 OK
+2025/06/06 10:59:18 Result: unmatched conditions 
+2025/06/06 11:02:20 condition not match: status=firing123
+2025/06/06 11:02:21 Feishu webhook response: 200 OK
+2025/06/06 11:02:21 Result: unmatched conditions 
+2025/06/06 18:19:20 Finish reloading config...
+2025/06/06 18:19:20 Config reloaded successfully
+2025/06/06 18:19:20 Config reloaded successfully and log configuration updated.
+2025/06/06 18:19:23 Start reloading config...
+2025/06/06 18:19:23 Finish reloading config...
+2025/06/06 18:19:23 Config reloaded successfully
+2025/06/06 18:19:23 Config reloaded successfully and log configuration updated.
+2025/06/06 18:21:22 Finish reloading config...
+2025/06/06 18:21:22 Config reloaded successfully
+2025/06/06 18:21:22 Config reloaded successfully and log configuration updated.
+2025/06/06 18:21:25 Start reloading config...
+2025/06/06 18:21:25 Finish reloading config...
+2025/06/06 18:21:25 Config reloaded successfully
+2025/06/06 18:21:25 Config reloaded successfully and log configuration updated.
+2025/06/06 18:21:31 Request body: {
+  "receiver":"Critical",
+  "status":"firing",
+  "alerts":[
+    {
+      "status":"firing",
+      "labels":{
+        "alertname":"Watchdog",
+        "prometheus":"monitoring/kube-prometheus-stack-prometheus",
+        "severity":"noneInfoInhibitor"
+      },
+      "annotations":{
+        "description":"This is an alert meant to ensure that the entire alerting pipeline is functional.\nThis alert is always firing, therefore it should always be firing in Alertmanager\nand always fire against a receiver. There are integrations with various notification\nmechanisms that send a notification when this alert is not firing. For example the\n\"DeadMansSnitch\" integration in PagerDuty.\n",
+        "runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/general/watchdog",
+        "summary":"An alert that should always be firing to certify that Alertmanager is working properly."
+      },
+      "startsAt":"2025-06-03T15:08:07.352Z",
+      "endsAt":"0001-01-01T00:00:00Z",
+      "generatorURL":"https://prometheus.autom.studio/graph?g0.expr=vector%281%29&g0.tab=1",
+      "fingerprint":"e7ee8f2dc34c63af"
+    }
+  ],
+  "groupLabels":{
+    "alertname":"Watchdog"
+  },
+  "commonLabels":{
+    "alertname":"Watchdog",
+    "prometheus":"monitoring/kube-prometheus-stack-prometheus",
+    "severity":"noneInfoInhibitor"
+  },
+  "commonAnnotations":{
+    "description":"This is an alert meant to ensure that the entire alerting pipeline is functional.\nThis alert is always firing, therefore it should always be firing in Alertmanager\nand always fire against a receiver. There are integrations with various notification\nmechanisms that send a notification when this alert is not firing. For example the\n\"DeadMansSnitch\" integration in PagerDuty.\n",
+    "runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/general/watchdog",
+    "summary":"An alert that should always be firing to certify that Alertmanager is working properly."
+  },
+  "externalURL":"https://alertmanager.autom.studio",
+  "version":"4",
+  "groupKey":"{}/{alertname=~\"InfoInhibitor|Watchdog|etcdMemberCommunicationSlow\"}:{alertname=\"Watchdog\"}",
+  "truncatedAlerts":0
+}
+2025/06/06 18:21:31 condition not match: status=firing123
+2025/06/06 18:21:31 Feishu webhook or template path not configured
+2025/06/06 18:21:31 Result: unmatched conditions 
+2025/06/06 18:23:48 Start reloading config...
+2025/06/06 18:23:48 Finish reloading config...
+2025/06/06 18:23:48 Config reloaded successfully
+2025/06/06 18:23:48 Config reloaded successfully and log configuration updated.
+2025/06/06 18:23:50 Request body: {
+  "receiver":"Critical",
+  "status":"firing",
+  "alerts":[
+    {
+      "status":"firing",
+      "labels":{
+        "alertname":"Watchdog",
+        "prometheus":"monitoring/kube-prometheus-stack-prometheus",
+        "severity":"noneInfoInhibitor"
+      },
+      "annotations":{
+        "description":"This is an alert meant to ensure that the entire alerting pipeline is functional.\nThis alert is always firing, therefore it should always be firing in Alertmanager\nand always fire against a receiver. There are integrations with various notification\nmechanisms that send a notification when this alert is not firing. For example the\n\"DeadMansSnitch\" integration in PagerDuty.\n",
+        "runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/general/watchdog",
+        "summary":"An alert that should always be firing to certify that Alertmanager is working properly."
+      },
+      "startsAt":"2025-06-03T15:08:07.352Z",
+      "endsAt":"0001-01-01T00:00:00Z",
+      "generatorURL":"https://prometheus.autom.studio/graph?g0.expr=vector%281%29&g0.tab=1",
+      "fingerprint":"e7ee8f2dc34c63af"
+    }
+  ],
+  "groupLabels":{
+    "alertname":"Watchdog"
+  },
+  "commonLabels":{
+    "alertname":"Watchdog",
+    "prometheus":"monitoring/kube-prometheus-stack-prometheus",
+    "severity":"noneInfoInhibitor"
+  },
+  "commonAnnotations":{
+    "description":"This is an alert meant to ensure that the entire alerting pipeline is functional.\nThis alert is always firing, therefore it should always be firing in Alertmanager\nand always fire against a receiver. There are integrations with various notification\nmechanisms that send a notification when this alert is not firing. For example the\n\"DeadMansSnitch\" integration in PagerDuty.\n",
+    "runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/general/watchdog",
+    "summary":"An alert that should always be firing to certify that Alertmanager is working properly."
+  },
+  "externalURL":"https://alertmanager.autom.studio",
+  "version":"4",
+  "groupKey":"{}/{alertname=~\"InfoInhibitor|Watchdog|etcdMemberCommunicationSlow\"}:{alertname=\"Watchdog\"}",
+  "truncatedAlerts":0
+}
+2025/06/06 18:23:50 condition not match: status=f234234ng123
+2025/06/06 18:23:50 Feishu webhook or template path not configured
+2025/06/06 18:23:50 Result: unmatched conditions 
+2025/06/06 18:24:07 Start reloading config...

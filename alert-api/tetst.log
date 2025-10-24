@@ -1,0 +1,163 @@
+2025/06/06 18:24:07 Finish reloading config...
+2025/06/06 18:24:07 Config reloaded successfully
+2025/06/06 18:24:07 Config reloaded successfully and log configuration updated.
+2025/06/06 18:24:09 Request body: {
+  "receiver":"Critical",
+  "status":"firing",
+  "alerts":[
+    {
+      "status":"firing",
+      "labels":{
+        "alertname":"Watchdog",
+        "prometheus":"monitoring/kube-prometheus-stack-prometheus",
+        "severity":"noneInfoInhibitor"
+      },
+      "annotations":{
+        "description":"This is an alert meant to ensure that the entire alerting pipeline is functional.\nThis alert is always firing, therefore it should always be firing in Alertmanager\nand always fire against a receiver. There are integrations with various notification\nmechanisms that send a notification when this alert is not firing. For example the\n\"DeadMansSnitch\" integration in PagerDuty.\n",
+        "runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/general/watchdog",
+        "summary":"An alert that should always be firing to certify that Alertmanager is working properly."
+      },
+      "startsAt":"2025-06-03T15:08:07.352Z",
+      "endsAt":"0001-01-01T00:00:00Z",
+      "generatorURL":"https://prometheus.autom.studio/graph?g0.expr=vector%281%29&g0.tab=1",
+      "fingerprint":"e7ee8f2dc34c63af"
+    }
+  ],
+  "groupLabels":{
+    "alertname":"Watchdog"
+  },
+  "commonLabels":{
+    "alertname":"Watchdog",
+    "prometheus":"monitoring/kube-prometheus-stack-prometheus",
+    "severity":"noneInfoInhibitor"
+  },
+  "commonAnnotations":{
+    "description":"This is an alert meant to ensure that the entire alerting pipeline is functional.\nThis alert is always firing, therefore it should always be firing in Alertmanager\nand always fire against a receiver. There are integrations with various notification\nmechanisms that send a notification when this alert is not firing. For example the\n\"DeadMansSnitch\" integration in PagerDuty.\n",
+    "runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/general/watchdog",
+    "summary":"An alert that should always be firing to certify that Alertmanager is working properly."
+  },
+  "externalURL":"https://alertmanager.autom.studio",
+  "version":"4",
+  "groupKey":"{}/{alertname=~\"InfoInhibitor|Watchdog|etcdMemberCommunicationSlow\"}:{alertname=\"Watchdog\"}",
+  "truncatedAlerts":0
+}
+2025/06/06 18:24:09 condition not match: status=f234234ng123
+2025/06/06 18:24:09 Feishu webhook or template path not configured
+2025/06/06 18:24:09 Result: unmatched conditions 
+2025/06/06 18:25:01 condition not match: status=f234234ng123
+2025/06/06 18:25:01 Feishu webhook response: 200 OK
+2025/06/06 18:25:01 Result: unmatched conditions 
+2025/08/06 13:53:46 condition not match: status=f234234ng123
+2025/08/06 13:53:47 Feishu webhook response: 200 OK
+2025/08/06 13:53:47 Result: unmatched conditions 
+2025/08/06 13:58:05 condition not match: alertname=NodeFilesystemReadonly
+2025/08/06 13:58:05 Feishu webhook response: 200 OK
+2025/08/06 13:58:05 Result: unmatched conditions 
+2025/08/06 13:59:08 condition not match: alertname=NodeFilesystemReadonly
+2025/08/06 13:59:09 Feishu webhook response: 200 OK
+2025/08/06 13:59:09 Result: unmatched conditions 
+2025/08/06 14:01:46 [WARN] yaml: line 2: mapping values are not allowed in this context
+2025/08/06 14:01:46 No conditions or actions defined, skipping execution.
+2025/08/06 14:01:47 Feishu webhook response: 200 OK
+2025/08/06 14:01:47 Result: No conditions or actions configured
+2025/08/06 14:05:05 condition not match: alertname=NodeFilesystemReadonly
+2025/08/06 14:05:05 Feishu webhook response: 200 OK
+2025/08/06 14:05:05 Result: unmatched conditions
+2025/08/06 14:08:39 condition not match: alertname=NodeFilesystemReadonly
+2025/08/06 14:08:40 Feishu webhook response: 200 OK
+2025/08/06 14:08:40 Result: unmatched conditions 
+2025/08/06 14:08:49 Request body: {"receiver":"Critical","status":"firing","alerts":[{"stat
+us":"firing","labels":{"alertname":"NodeFilesystemReadonly","instance":"10.4.145.93:9100","job":"external-node_exporter-git-service","prometheus":"monitoring/kube-pro
+metheus-stack-prometheus","severity":"info"},"annotations":{"description":"This node has rebooted within the last 10 minutes, which may indicate an abnormal restart
+.\n","runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/node/recentlyrebooted","summary":"Node recently rebooted (10.4.145.93:9100)"},"startsAt":"2025
+-08-06T05:42:09.726Z","endsAt":"0001-01-01T00:00:00Z","generatorURL":"https://prometheus.autom.studio/graph?g0.expr=time()%20-%20node_boot_time_seconds%20%3C%20600&
+g0.tab=1","fingerprint":"3928313aa1454622"}],"groupLabels":{"alertname":"NodeRecentlyRebooted","job":"external-node_exporter-git-service"},"commonLabels":{"alertnam
+e":"NodeRecentlyRebooted","instance":"10.4.145.93:9100","job":"external-node_exporter-git-service","prometheus":"monitoring/kube-prometheus-stack-prometheus","sever
+ity":"info"},"commonAnnotations":{"description":"This node has rebooted within the last 10 minutes, which may indicate an abnormal restart.\n","runbook_url":"https:
+//runbooks.prometheus-operator.dev/runbooks/node/recentlyrebooted","summary":"Node recently rebooted (10.4.145.93:9100)"},"externalURL":"https://alertmanager.autom.
+studio","version":"4","groupKey":"{}:{alertname=\"NodeFilesystemReadonly\", job=\"external-node_exporter-git-service\"}","truncatedAlerts":0}
+2025/08/06 14:08:49 Failed to bind JSON: invalid character '\n' in string literal
+2025/08/06 14:09:32 Request body: {"receiver":"Critical","status":"firing","aleus":"firing","labels":{"alertname":"NodeFilesystemReadonly","instance":"10.4.145.93:9100","job":"external-node_exporter-git-service","prometheus":"monitoring/kube-prometheus-stack-prometheus","severity":"info"},"annotations":{"description":"This node has rebooted within the last 10 minutes, which may indicate an abnormal restart.\n","runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/node/recentlyrebooted","summary":"Node recently rebooted (10.4.145.93:9100)"},"startsAt":"2025-08-06T05:42:09.726Z","endsAt":"0001-01-01T00:00:00Z","generatorURL":"https://prometheus.autom.studio/graph?g0.expr=time()%20-%20node_boot_time_seconds%20%3C%20600&g0.tab=1","fingerprint":"3928313aa1454622"}],"groupLabels":{"alertname":"NodeFilesystemReadonly","job":"external-node_exporter-git-service"},"commonLabels":{"alertname":"NodeFilesystemReadonly","instance":"10.4.145.93:9100","job":"external-node_exporter-git-service","prometheus":"monitoring/kube-prometheus-stack-prometheus","severity":"info"},"commonAnnotations":{"description":"This node has rebooted within the last 10 minutes, which may indicate an abnormal restart.\n","runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/node/recentlyrebooted","summary":"Node recently rebooted (10.4.145.93:9100)"},"externalURL":"https://alertmanager.autom.studio","version":"4","groupKey":"{}:{alertname=\"NodeFilesystemReadonly\", job=\"external-node_exporter-git-service\"}","truncatedAlerts":0}
+2025/08/06 14:09:32 Failed to bind JSON: invalid character ']' after top-level value
+2025/08/06 14:09:46 Request body: {"receiver":"Critical","status":"firing","alerts":[{"status":"firing","labels":{"alertname":"NodeRecentlyRebooted","instance":"10.4.145.93:9100","job":"external-node_exporter-git-service","prometheus":"monitoring/kube-prometheus-stack-prometheus","severity":"info"},"annotations":{"description":"This node has rebooted within the last 10 minutes, which may indicate an abnormal restart.\n","runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/node/recentlyrebooted","summary":"Node recently rebooted (10.4.145.93:9100)"},"startsAt":"2025-08-06T05:42:09.726Z","endsAt":"0001-01-01T00:00:00Z","generatorURL":"https://prometheus.autom.studio/graph?g0.expr=time()%20-%20node_boot_time_seconds%20%3C%20600&g0.tab=1","fingerprint":"3928313aa1454622"}],"groupLabels":{"alertname":"NodeRecentlyRebooted","job":"external-node_exporter-git-service"},"commonLabels":{"alertname":"NodeRecentlyRebooted","instance":"10.4.145.93:9100","job":"external-node_exporter-git-service","prometheus":"monitoring/kube-prometheus-stack-prometheus","severity":"info"},"commonAnnotations":{"description":"This node has rebooted within the last 10 minutes, which may indicate an abnormal restart.\n","runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/node/recentlyrebooted","summary":"Node recently rebooted (10.4.145.93:9100)"},"externalURL":"https://alertmanager.autom.studio","version":"4","groupKey":"{}:{alertname=\"NodeRecentlyRebooted\", job=\"external-node_exporter-git-service\"}","truncatedAlerts":0}
+2025/08/06 14:09:46 condition not match: alertname=NodeFilesystemReadonly
+2025/08/06 14:09:47 Feishu webhook response: 200 OK
+2025/08/06 14:09:47 Result: unmatched conditions 
+2025/08/06 14:10:17 Start reloading config...
+2025/08/06 14:10:17 Finish reloading config...
+2025/08/06 14:10:17 Config reloaded successfully
+2025/08/06 14:10:17 Config reloaded successfully and log configuration updated.
+2025/08/06 14:10:21 Request body: {"receiver":"Critical","status":"firing","alerts":[{"status":"firing","labels":{"alertname":"NodeRecentlyRebooted","instance":"10.4.145.93:9100","job":"external-node_exporter-git-service","prometheus":"monitoring/kube-prometheus-stack-prometheus","severity":"info"},"annotations":{"description":"This node has rebooted within the last 10 minutes, which may indicate an abnormal restart.\n","runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/node/recentlyrebooted","summary":"Node recently rebooted (10.4.145.93:9100)"},"startsAt":"2025-08-06T05:42:09.726Z","endsAt":"0001-01-01T00:00:00Z","generatorURL":"https://prometheus.autom.studio/graph?g0.expr=time()%20-%20node_boot_time_seconds%20%3C%20600&g0.tab=1","fingerprint":"3928313aa1454622"}],"groupLabels":{"alertname":"NodeRecentlyRebooted","job":"external-node_exporter-git-service"},"commonLabels":{"alertname":"NodeRecentlyRebooted","instance":"10.4.145.93:9100","job":"external-node_exporter-git-service","prometheus":"monitoring/kube-prometheus-stack-prometheus","severity":"info"},"commonAnnotations":{"description":"This node has rebooted within the last 10 minutes, which may indicate an abnormal restart.\n","runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/node/recentlyrebooted","summary":"Node recently rebooted (10.4.145.93:9100)"},"externalURL":"https://alertmanager.autom.studio","version":"4","groupKey":"{}:{alertname=\"NodeRecentlyRebooted\", job=\"external-node_exporter-git-service\"}","truncatedAlerts":0}
+2025/08/06 14:10:21 condition match: alertname=NodeRecentlyRebooted
+2025/08/06 14:10:21 exec command: echo 
+2025/08/06 14:10:21 exec command fail: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:10:21 command output: 
+2025/08/06 14:10:21 Action execution failed: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:10:21 Failed to execute action: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:11:12 condition match: alertname=NodeRecentlyRebooted
+2025/08/06 14:11:12 exec command: echo 
+2025/08/06 14:11:12 exec command fail: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:11:12 command output: 
+2025/08/06 14:11:12 Action execution failed: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:11:12 Failed to execute action: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:12:53 condition match: alertname=NodeRecentlyRebooted
+2025/08/06 14:12:53 exec ip: 
+2025/08/06 14:12:53 exec command fail: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:12:53 command output: 
+2025/08/06 14:12:53 Action execution failed: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:12:53 Failed to execute action: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:14:47 condition match: alertname=NodeRecentlyRebooted
+2025/08/06 14:14:47 msg: This node has rebooted within the last 10 minutes, which may indicate an abnormal restart. 
+2025/08/06 14:14:47 exec ip: 
+2025/08/06 14:14:47 exec command fail: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:14:47 command output: 
+2025/08/06 14:14:47 Action execution failed: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:14:47 Failed to execute action: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:16:04 Request body: {"receiver":"Critical","status":"firing","alerts":[{"status":"firing","labels":{"alertname":"NodeRecentlyRebooted","instance":"10.4.145.93:9100","job":"external-node_exporter-git-service","prometheus":"monitoring/kube-prometheus-stack-prometheus","severity":"info"},"annotations":{"description":"This node has rebooted within the last 10 minutes, which may indicate an abnormal restart.\n","runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/node/recentlyrebooted","summary":"Node recently rebooted (10.4.145.93:9100)"},"startsAt":"2025-08-06T05:42:09.726Z","endsAt":"0001-01-01T00:00:00Z","generatorURL":"https://prometheus.autom.studio/graph?g0.expr=time()%20-%20node_boot_time_seconds%20%3C%20600&g0.tab=1","fingerprint":"3928313aa1454622"}],"groupLabels":{"alertname":"NodeRecentlyRebooted","job":"external-node_exporter-git-service"},"commonLabels":{"alertname":"NodeRecentlyRebooted","instance":"10.4.145.93:9100","job":"external-node_exporter-git-service","prometheus":"monitoring/kube-prometheus-stack-prometheus","severity":"info"},"commonAnnotations":{"description":"This node has rebooted within the last 10 minutes, which may indicate an abnormal restart.\n","runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/node/recentlyrebooted","summary":"Node recently rebooted (10.4.145.93:9100)"},"externalURL":"https://alertmanager.autom.studio","version":"4","groupKey":"{}:{alertname=\"NodeRecentlyRebooted\", job=\"external-node_exporter-git-service\"}","truncatedAlerts":0}
+2025/08/06 14:16:04 condition match: alertname=NodeRecentlyRebooted
+2025/08/06 14:16:04 msg: This node has rebooted within the last 10 minutes, which may indicate an abnormal restart. 
+2025/08/06 14:16:04 exec ip: 
+2025/08/06 14:16:04 exec command fail: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:16:04 command output: 
+2025/08/06 14:16:04 Action execution failed: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:16:04 Failed to execute action: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:16:07 Request body: {"receiver":"Critical","status":"firing","alerts":[{"status":"firing","labels":{"alertname":"NodeRecentlyRebooted","instance":"10.4.145.93:9100","job":"external-node_exporter-git-service","prometheus":"monitoring/kube-prometheus-stack-prometheus","severity":"info"},"annotations":{"description":"This node has rebooted within the last 10 minutes, which may indicate an abnormal restart.\n","runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/node/recentlyrebooted","summary":"Node recently rebooted (10.4.145.93:9100)"},"startsAt":"2025-08-06T05:42:09.726Z","endsAt":"0001-01-01T00:00:00Z","generatorURL":"https://prometheus.autom.studio/graph?g0.expr=time()%20-%20node_boot_time_seconds%20%3C%20600&g0.tab=1","fingerprint":"3928313aa1454622"}],"groupLabels":{"alertname":"NodeRecentlyRebooted","job":"external-node_exporter-git-service"},"commonLabels":{"alertname":"NodeRecentlyRebooted","instance":"10.4.145.93:9100","job":"external-node_exporter-git-service","prometheus":"monitoring/kube-prometheus-stack-prometheus","severity":"info"},"commonAnnotations":{"description":"This node has rebooted within the last 10 minutes, which may indicate an abnormal restart.\n","runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/node/recentlyrebooted","summary":"Node recently rebooted (10.4.145.93:9100)"},"externalURL":"https://alertmanager.autom.studio","version":"4","groupKey":"{}:{alertname=\"NodeRecentlyRebooted\", job=\"external-node_exporter-git-service\"}","truncatedAlerts":0}
+2025/08/06 14:16:07 condition match: alertname=NodeRecentlyRebooted
+2025/08/06 14:16:07 msg: This node has rebooted within the last 10 minutes, which may indicate an abnormal restart. 
+2025/08/06 14:16:07 exec ip: 
+2025/08/06 14:16:07 exec command fail: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:16:07 command output: 
+2025/08/06 14:16:07 Action execution failed: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:16:07 Failed to execute action: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:16:15 Request body: {"receiver":"Critical","status":"firing","alerts":[{"status":"firing","labels":{"alertname":"NodeRecentlyRebooted","instance":"10.4.145.93:9100","job":"external-node_exporter-git-service","prometheus":"monitoring/kube-prometheus-stack-prometheus","severity":"info"},"annotations":{"description":"This node has rebooted within the last 10 minutes, which may indicate an abnormal restart.\n","runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/node/recentlyrebooted","summary":"Node recently rebooted (10.4.145.93:9100)"},"startsAt":"2025-08-06T05:42:09.726Z","endsAt":"0001-01-01T00:00:00Z","generatorURL":"https://prometheus.autom.studio/graph?g0.expr=time()%20-%20node_boot_time_seconds%20%3C%20600&g0.tab=1","fingerprint":"3928313aa1454622"}],"groupLabels":{"alertname":"NodeRecentlyRebooted","job":"external-node_exporter-git-service"},"commonLabels":{"alertname":"NodeRecentlyRebooted","instance":"10.4.145.93:9100","job":"external-node_exporter-git-service","prometheus":"monitoring/kube-prometheus-stack-prometheus","severity":"info"},"commonAnnotations":{"description":"This node has rebooted within the last 10 minutes, which may indicate an abnormal restart.\n","runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/node/recentlyrebooted","summary":"Node recently rebooted (10.4.145.93:9100)"},"externalURL":"https://alertmanager.autom.studio","version":"4","groupKey":"{}:{alertname=\"NodeRecentlyRebooted\", job=\"external-node_exporter-git-service\"}","truncatedAlerts":0}
+2025/08/06 14:16:15 condition match: alertname=NodeRecentlyRebooted
+2025/08/06 14:16:15 msg: This node has rebooted within the last 10 minutes, which may indicate an abnormal restart. 
+2025/08/06 14:16:15 exec ip: 
+2025/08/06 14:16:15 exec command fail: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:16:15 command output: 
+2025/08/06 14:16:15 Action execution failed: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:16:15 Failed to execute action: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:16:57 Request body: {"receiver":"Critical","status":"firing","alerts":[{"status":"firing","labels":{"alertname":"NodeRecentlyRebooted","instance":"10.4.145.93:9100","job":"external-node_exporter-git-service","prometheus":"monitoring/kube-prometheus-stack-prometheus","severity":"info"},"annotations":{"description":"This node has rebooted within the last 10 minutes, which may indicate an abnormal restart.\n","runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/node/recentlyrebooted","summary":"Node recently rebooted (10.4.145.93:9100)"},"startsAt":"2025-08-06T05:42:09.726Z","endsAt":"0001-01-01T00:00:00Z","generatorURL":"https://prometheus.autom.studio/graph?g0.expr=time()%20-%20node_boot_time_seconds%20%3C%20600&g0.tab=1","fingerprint":"3928313aa1454622"}],"groupLabels":{"alertname":"NodeRecentlyRebooted","job":"external-node_exporter-git-service"},"commonLabels":{"alertname":"NodeRecentlyRebooted","instance":"10.4.145.93:9100","job":"external-node_exporter-git-service","prometheus":"monitoring/kube-prometheus-stack-prometheus","severity":"info"},"commonAnnotations":{"description":"This node has  (10.4.145.93:9100) rebooted within the last 10 minutes, which may indicate an abnormal restart.\n","runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/node/recentlyrebooted","summary":"Node recently rebooted (10.4.145.93:9100)"},"externalURL":"https://alertmanager.autom.studio","version":"4","groupKey":"{}:{alertname=\"NodeRecentlyRebooted\", job=\"external-node_exporter-git-service\"}","truncatedAlerts":0}
+2025/08/06 14:16:57 condition match: alertname=NodeRecentlyRebooted
+2025/08/06 14:16:57 msg: This node has rebooted within the last 10 minutes, which may indicate an abnormal restart. 
+2025/08/06 14:16:57 exec ip: 
+2025/08/06 14:16:57 exec command fail: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:16:57 command output: 
+2025/08/06 14:16:57 Action execution failed: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:16:57 Failed to execute action: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:17:01 Request body: {"receiver":"Critical","status":"firing","alerts":[{"status":"firing","labels":{"alertname":"NodeRecentlyRebooted","instance":"10.4.145.93:9100","job":"external-node_exporter-git-service","prometheus":"monitoring/kube-prometheus-stack-prometheus","severity":"info"},"annotations":{"description":"This node has rebooted within the last 10 minutes, which may indicate an abnormal restart.\n","runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/node/recentlyrebooted","summary":"Node recently rebooted (10.4.145.93:9100)"},"startsAt":"2025-08-06T05:42:09.726Z","endsAt":"0001-01-01T00:00:00Z","generatorURL":"https://prometheus.autom.studio/graph?g0.expr=time()%20-%20node_boot_time_seconds%20%3C%20600&g0.tab=1","fingerprint":"3928313aa1454622"}],"groupLabels":{"alertname":"NodeRecentlyRebooted","job":"external-node_exporter-git-service"},"commonLabels":{"alertname":"NodeRecentlyRebooted","instance":"10.4.145.93:9100","job":"external-node_exporter-git-service","prometheus":"monitoring/kube-prometheus-stack-prometheus","severity":"info"},"commonAnnotations":{"description":"This node has  (10.4.145.93:9100) rebooted within the last 10 minutes, which may indicate an abnormal restart.\n","runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/node/recentlyrebooted","summary":"Node recently rebooted (10.4.145.93:9100)"},"externalURL":"https://alertmanager.autom.studio","version":"4","groupKey":"{}:{alertname=\"NodeRecentlyRebooted\", job=\"external-node_exporter-git-service\"}","truncatedAlerts":0}
+2025/08/06 14:17:01 condition match: alertname=NodeRecentlyRebooted
+2025/08/06 14:17:01 msg: This node has rebooted within the last 10 minutes, which may indicate an abnormal restart. 
+2025/08/06 14:17:01 exec ip: 
+2025/08/06 14:17:01 exec command fail: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:17:01 command output: 
+2025/08/06 14:17:01 Action execution failed: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:17:01 Failed to execute action: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:17:28 Request body: {"receiver":"Critical","status":"firing","alerts":[{"status":"firing","labels":{"alertname":"NodeRecentlyRebooted","instance":"10.4.145.93:9100","job":"external-node_exporter-git-service","prometheus":"monitoring/kube-prometheus-stack-prometheus","severity":"info"},"annotations":{"description":"This node has  (10.4.145.93:9100)  rebooted within the last 10 minutes, which may indicate an abnormal restart.\n","runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/node/recentlyrebooted","summary":"Node recently rebooted (10.4.145.93:9100)"},"startsAt":"2025-08-06T05:42:09.726Z","endsAt":"0001-01-01T00:00:00Z","generatorURL":"https://prometheus.autom.studio/graph?g0.expr=time()%20-%20node_boot_time_seconds%20%3C%20600&g0.tab=1","fingerprint":"3928313aa1454622"}],"groupLabels":{"alertname":"NodeRecentlyRebooted","job":"external-node_exporter-git-service"},"commonLabels":{"alertname":"NodeRecentlyRebooted","instance":"10.4.145.93:9100","job":"external-node_exporter-git-service","prometheus":"monitoring/kube-prometheus-stack-prometheus","severity":"info"},"commonAnnotations":{"description":"This node has  (10.4.145.93:9100) rebooted within the last 10 minutes, which may indicate an abnormal restart.\n","runbook_url":"https://runbooks.prometheus-operator.dev/runbooks/node/recentlyrebooted","summary":"Node recently rebooted (10.4.145.93:9100)"},"externalURL":"https://alertmanager.autom.studio","version":"4","groupKey":"{}:{alertname=\"NodeRecentlyRebooted\", job=\"external-node_exporter-git-service\"}","truncatedAlerts":0}
+2025/08/06 14:17:28 condition match: alertname=NodeRecentlyRebooted
+2025/08/06 14:17:28 msg: This node has  (10.4.145.93:9100)  rebooted within the last 10 minutes, which may indicate an abnormal restart. 
+2025/08/06 14:17:28 exec ip: 10.4.145.93
+2025/08/06 14:17:28 exec command fail: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:17:28 command output: 
+2025/08/06 14:17:28 Action execution failed: exec: "sh": executable file not found in %PATH%
+2025/08/06 14:17:28 Failed to execute action: exec: "sh": executable file not found in %PATH%

@@ -1,0 +1,110 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alert-webhook
+  namespace: monitoring       # 你可以根据需要修改命名空间
+  labels:
+    app: alert-webhook
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: alert-webhook
+  template:
+    metadata:
+      labels:
+        app: alert-webhook
+    spec:
+      containers:
+        - name: alert-webhook
+          image:  test # 替换成你的镜像地址123
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000                     # 你的 webhook 服务端口
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          volumeMounts:
+            - name: config-volume
+              mountPath: /app/logs.yml
+              subPath: log.yml
+            - name: config-volume
+              mountPath: /app/conditions.yml
+              subPath: conditions.yml
+            - name: config-volume
+              mountPath: /app/actions.yml
+              subPath: actions.yml
+            - name: secret-volume
+              mountPath: /app/config.yml
+              subPath: config.yml
+      volumes:
+        - name: config-volume
+          configMap:
+            name: alert-webhook-config
+        - name: secret-volume
+          secret:
+            secretName: alert-webhook-secret
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: alert-webhook
+  namespace: monitoring
+  labels:
+    app: alert-webhook
+spec:
+  type: ClusterIP
+  ports:
+    - port: 5000
+      targetPort: 5000
+      protocol: TCP
+      name: http
+  selector:
+    app: alert-webhook
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: alert-webhook-config
+  namespace: monitoring
+data:
+  log.yml: |
+    filename: "alert.log"   # 日志文件名
+    maxSize: 1                     # 单个日志文件最大大小（MB）
+    maxBackups: 7                   # 保留最大备份文件数
+    maxAge: 2                    # 保留日志的最大天数
+    compress: true                  # 是否启用压缩
+  conditions.yml: |
+    # your conditions config
+    - name: cpu_high
+      fields:
+        alertname: HighCPU
+      action: notify_admin
+  actions.yml: |
+    # your actions config
+    notify_admin:
+      type: command
+      command: "echo test"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: alert-webhook-secret
+  namespace: monitoring
+type: Opaque
+stringData:
+  config.yml: |
+    # your secret config
+    Feishu:
+      webhook: ""
+      sign: 
